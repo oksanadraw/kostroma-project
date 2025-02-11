@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чухломской район, с. Мироханово</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #FFA500; /* Оранжевый фон */
+            font-family: "Times New Roman", serif;
+            color: #5C4033;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery img {
+            max-width: 400px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #ffcc80;
+            border: 2px solid #cc7a00;
+            border-radius: 8px;
+            color: #5C4033;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #e69500;
+            border-color: #cc7a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="history.html">История</a></li>
+                <li><a href="karta.html">Карта</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Чухломской район, с. Мироханово</h1>
+        <section class="gallery">
+            <img src="images/ch_007_04s.jpg" alt="Церковь в Мироханово 1">
+            <img src="images/ch_007_08s.jpg" alt="Церковь в Мироханово 2">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Костромская губерния. Все права защищены.</p>
+    </footer>
+</body>
+</html>
