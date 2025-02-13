@@ -1,0 +1,83 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2820
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 body \{\
+    background-color: #FFDAB9; /* \uc0\u1055 \u1077 \u1088 \u1089 \u1080 \u1082 \u1086 \u1074 \u1099 \u1081  \u1092 \u1086 \u1085  */\
+    font-family: "Times New Roman", serif;\
+    color: #5C4033;\
+\}\
+\
+h1, h2, p, nav ul li a \{\
+    font-family: "Times New Roman", serif;\
+    font-style: italic;\
+    font-weight: bold;\
+\}\
+\
+h1 \{\
+    font-size: 2.2em;\
+    text-align: center;\
+    margin-top: 20px;\
+\}\
+\
+nav ul \{\
+    list-style: none;\
+    padding: 0;\
+    margin: 0;\
+    display: flex;\
+    justify-content: center;\
+    gap: 10px;\
+    background-color: #f8f8f8;\
+    padding: 10px 0;\
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\
+\}\
+\
+nav ul li a \{\
+    text-decoration: none;\
+    padding: 10px 20px;\
+    background-color: #ffffff;\
+    border: 2px solid #cccccc;\
+    border-radius: 8px;\
+    color: #5C4033;\
+    font-weight: bold;\
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);\
+    transition: all 0.3s ease;\
+\}\
+\
+nav ul li a:hover \{\
+    background-color: #e6e6e6;\
+    border-color: #aaaaaa;\
+\}\
+\
+.gallery \{\
+    display: flex;\
+    justify-content: center;\
+    flex-wrap: wrap;\
+    gap: 20px;\
+    padding: 20px;\
+\}\
+\
+.gallery img \{\
+    max-width: 400px;\
+    height: auto;\
+    display: block;\
+    border-radius: 8px;\
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\
+\}\
+\
+.logo \{\
+    position: absolute;\
+    bottom: 10px;\
+    right: 10px;\
+    width: 50px;\
+    height: auto;\
+\}\
+\
+main \{\
+    text-align: center;\
+    padding: 20px;\
+\}\
+}
