@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Церковь Николая Чудотворца</title>
+    <!-- Встроенные стили для навигации и изображений -->
     <style>
         body {
             background-color: #98FB98;
@@ -26,16 +27,103 @@
             margin-top: 20px;
         }
         img {
-            max-width: 45%;
+            max-width: 250px; /* Уменьшен размер изображений */
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Стили для меню */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
+            border-radius: 8px;
+            color: #5C4033;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #e6e6e6;
+            border-color: #aaaaaa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Для выпадающего меню */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
+            border-radius: 8px;
+            min-width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            color: #5C4033;
+            text-align: left;
+            background-color: #ffffff;
+            display: block;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #e6e6e6;
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="history.html">История</a></li>
+                <li>
+                    <a href="#">Храмы</a>
+                    <ul>
+                        <li><a href="mirohanovo.html">с. Мироханово</a></li>
+                        <li><a href="hicolo_church.html">Церковь Николая Чудотворца</a></li>
+                        <li><a href="povalihino.html">с. Повалихино</a></li>
+                        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
+                        <li><a href="church_vlad.html">Церковь иконы Божией Матери Владимирская</a></li>
+                    </ul>
+                </li>
+                <li><a href="karta.html">Карта</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Церковь Николая Чудотворца</h1>
     <p>Обычно храмы в сельской местности строились «всем миром». Примером является церковь Николая Чудотворца, Никола – остров урочище Чухломской уезд, Костромской области.</p>
+    
+    <!-- Контейнер для изображений -->
     <div class="image-container">
+        <!-- Убедитесь, что изображения находятся в правильной папке и пути указаны корректно -->
         <img src="Hicolsk_1.JPG" alt="Храм Николая Чудотворца">
         <img src="Hicolsk.JPG" alt="Храм Николая Чудотворца">
     </div>
