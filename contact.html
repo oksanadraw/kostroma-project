@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+        }
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+        }
+        .mobile-menu a:hover {
+            background-color: #575757;
+        }
+        .menu-toggle {
+            display: none;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .menu {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleMenu()">Меню</div>
+    <div class="menu">
+        <a href="index.html">Главная</a>
+        <a href="history.html">История</a>
+        <a href="karta.html">Карта</a>
+        <a href="contact.html">Контакты</a>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html">Главная</a>
+        <a href="history.html">История</a>
+        <a href="karta.html">Карта</a>
+        <a href="contact.html">Контакты</a>
+    </div>
+    <h1>Контакты</h1>
+    <p>Здесь будут контактные данные.</p>
+</body>
+</html>
