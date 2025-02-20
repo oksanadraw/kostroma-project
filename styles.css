@@ -81,3 +81,24 @@ main \{\
     padding: 20px;\
 \}\
 }
+                                  /* Центрирование текста по горизонтали */
+.text-center {
+    text-align: center;
+}
+
+/* Центрирование блока по центру страницы */
+.center-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Растягивает блок на всю высоту экрана */
+}
+
+/* Дополнительно, если нужно центрировать внутри контейнера */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
