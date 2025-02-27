@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -54,6 +55,24 @@
       color: #fff;
       padding: 20px;
       text-align: center;
+      position: relative;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .back-home {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: #fff;
+      color: #004080;
+      padding: 5px 10px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .back-home:hover {
+      background: #e0e0e0;
     }
     .news-item {
       margin-bottom: 40px;
@@ -132,6 +151,7 @@
   <div class="content">
     <header class="header">
       <h1>Новости</h1>
+      <a href="index.html" class="back-home">Вернуться на главную</a>
     </header>
     <!-- Новость о Костроме -->
     <div class="news-item">
@@ -160,4 +180,15 @@
           <p>Фотогалерея</p>
         </div>
         <div class="gallery">
-          <a href="#"><img src="https://via.placeholder.com/300x200?text=Видео" alt="Видео"
+          <a href="#"><img src="https://via.placeholder.com/300x200?text=Видео" alt="Видео"></a>
+          <p>Видеогалерея</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      &copy; 2025 Кострома. Все права защищены.
+    </footer>
+  </div>
+</body>
+</html>
