@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новости</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    /* Стили для вертикального меню */
+    .sidebar {
+      width: 250px;
+      background: #004080;
+      padding: 20px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+    .sidebar h2 {
+      font-size: 20px;
+      margin: 0 0 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+    /* Стили для основного контента */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px;
+      box-sizing: border-box;
+    }
+    .header {
+      background: #004080;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .news-item {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+    .news-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .news-item h2 {
+      color: #004080;
+      margin-top: 0;
+    }
+    .news-item p {
+      line-height: 1.6;
+      color: #333;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+    }
+    /* Стили для раздела Фото и Видео */
+    .media-section {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+    .media-section h2 {
+      color: #004080;
+      margin-bottom: 20px;
+    }
+    .media-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .gallery {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+    .gallery p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background: #004080;
+      color: #fff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>Меню</h2>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="#">Новости</a></li>
+      <li><a href="#media">Фото и Видео</a></li>
+      <li><a href="#">О нас</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <header class="header">
+      <h1>Новости</h1>
+    </header>
+    <!-- Новость о Костроме -->
+    <div class="news-item">
+      <h2>Кострома – древний город с богатой историей</h2>
+      <p>
+        Кострома – один из древнейших городов России, основанный в 1152 году Юрием Долгоруким. Город играл важную роль как торговый и военный центр, связывая северные и восточные регионы страны. Его историческое значение подтверждается участием в ключевых сражениях и культурным наследием, которое до сих пор привлекает исследователей и туристов.
+      </p>
+      <a href="#" class="read-more">Читать далее</a>
+    </div>
+    
+    <!-- Новость о Чухломском крае -->
+    <div class="news-item">
+      <h2>Чухломская история: Чухлома и Чухломской край</h2>
+      <p>
+        Чухломский край имеет богатую историю, начинающуюся с IX века, когда новгородцы осваивали территорию, ранее населенную финно-угорскими племенами. Местные легенды и архитектурные памятники отражают смешение культур, сохраняя память о древних традициях и колонизации, которая сформировала уникальное наследие региона.
+      </p>
+      <a href="#" class="read-more">Читать далее</a>
+    </div>
+
+    <!-- Раздел Фото и Видео -->
+    <div class="media-section" id="media">
+      <h2>Фото и Видео</h2>
+      <div class="media-row">
+        <div class="gallery">
+          <a href="#"><img src="https://via.placeholder.com/300x200?text=Фото" alt="Фото"></a>
+          <p>Фотогалерея</p>
+        </div>
+        <div class="gallery">
+          <a href="#"><img src="https://via.placeholder.com/300x200?text=Видео" alt="Видео"
