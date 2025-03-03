@@ -5,7 +5,7 @@
   <title>Музеи Костромской области</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -16,6 +16,7 @@
       max-width: 1200px;
       margin: 20px auto;
     }
+    /* Боковая панель (меню) */
     .sidebar {
       width: 250px;
       background-color: rgba(255,255,255,0.9);
@@ -28,24 +29,29 @@
       font-size: 1.5em;
       text-align: center;
     }
-    .horizontal-menu {
+    /* Вертикальное меню: пункты располагаются друг под другом */
+    .vertical-menu {
       list-style: none;
       padding: 0;
       margin: 0;
-      text-align: center;
     }
-    .horizontal-menu li {
-      display: inline-block;
-      margin: 0 5px;
+    .vertical-menu li {
+      margin-bottom: 10px;
     }
-    .horizontal-menu li a {
+    .vertical-menu li a {
+      display: block;
       text-decoration: none;
       font-weight: bold;
       color: #0984e3;
+      padding: 8px;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+      text-align: center;
     }
-    .horizontal-menu li a:hover {
-      text-decoration: underline;
+    .vertical-menu li a:hover {
+      background-color: #dcdde1;
     }
+    /* Основной контент */
     .content {
       flex: 1;
       background-color: rgba(255,255,255,0.9);
@@ -78,4 +84,110 @@
       width: 300px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-   
+    ul.museums li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .museum-title {
+      font-weight: bold;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+    .museum-title a {
+      text-decoration: none;
+      color: #0984e3;
+    }
+    .museum-title a:hover {
+      text-decoration: underline;
+    }
+    .description {
+      font-size: 0.95em;
+      color: #636e72;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Левая боковая панель с вертикальным меню -->
+    <aside class="sidebar">
+      <h2>Меню</h2>
+      <nav>
+        <ul class="vertical-menu">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Музеи</a></li>
+          <li><a href="#">О регионе</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Основной контент -->
+    <main class="content">
+      <h1>Музеи Костромской области</h1>
+      <p>Ознакомьтесь с богатым культурным наследием региона через экспозиции местных музеев.</p>
+      <ul class="museums">
+        <li>
+          <div class="museum-title">
+            <a href=" https://kosmuseum.ru" target="_blank">
+              Костромской государственный историко-архитектурный музей‑заповедник
+            </a>
+          </div>
+          <div class="description">
+            Один из крупнейших музеев региона, расположенный в историческом центре Костромы. Экспозиции охватывают историю, архитектуру и культуру края.
+          </div>
+        </li>
+        <li>
+          <div class="museum-title">
+            <a href="https://www.частныемузеи.рф/o-proekte/geografiya/kostromskaya-oblast/muzej-narodnyh-promyslov-petrovskaya-igrushka/" target="_blank">
+              Музей народных промыслов. Петровская игрушка
+            </a>
+          </div>
+          <div class="description">
+            Музей, посвящённый традиционному костромскому игрушечному искусству, с работами народных мастеров и экспонатами ремёсленного наследия.
+          </div>
+        </li>
+        <li>
+          <div class="museum-title">
+            <a href="https://kosmuseum.ru/tickets/zodchestvo-/ target="_blank">
+              Музей деревянного зодчества
+            </a>
+          </div>
+          <div class="description">
+            Экспозиция традиционного деревянного строительства, быта и ремёсел Костромской области с примерами народной архитектуры.
+          </div>
+        </li>
+        <li>
+          <div class="museum-title">
+            <a href="https://kosmuseum.ru/filials/galichskiy-kraevedcheskiy-muzey/" target="_blank">
+              Галичский краеведческий музей
+            </a>
+          </div>
+          <div class="description">
+            Музей в городе Галич, посвящённый истории и культурному наследию региона, с археологическими и этнографическими экспонатами.
+          </div>
+        </li>
+        <li>
+          <div class="museum-title">
+            <a href="https://kosmuseum.ru/filials/nerekhtskiy-kraevedcheskiy-muzey-imeni-n-p-rodionovoy/" target="_blank">
+              Музей истории города Нерехта
+            </a>
+          </div>
+          <div class="description">
+            Музей, рассказывающий об истории и развитии города Нерехта, его культурных традициях и значимых исторических событиях.
+          </div>
+        </li>
+        <li>
+          <div class="museum-title">
+            <a href="http://www.kostromanarod.ru" target="_blank">
+              Костромской музей народного творчества
+            </a>
+          </div>
+          <div class="description">
+            Музей, собравший образцы народного творчества, ремёсел, традиционной одежды и декоративно-прикладного искусства региона.
+          </div>
+        </li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>
+
