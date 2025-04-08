@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = htmlspecialchars(trim($_POST["message"]));
 
     // Email
-    $to = "your@email.com";
+    $to = "salonkrasoti2015@yandex.ru";
     $subject = "Новое сообщение с сайта";
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
