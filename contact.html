@@ -20,6 +20,16 @@
       background-color: #ffffff;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       z-index: 999;
+      transform: translateY(-100%);
+      opacity: 0;
+      animation: slideDown 0.6s ease-out forwards;
+    }
+
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .nav-container {
@@ -64,12 +74,153 @@
 
     .container {
       max-width: 960px;
-      margin: 100px auto 0;
-      background-color: #fff;
+      margin: 120px auto 0;
+      background-color: #ffffff;
       padding: 40px;
-      box-shadow: 0 0
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 12px;
+    }
 
-     
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #222;
+    }
 
-    
- 
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .contact-item i {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #444;
+      width: 25px;
+      text-align: center;
+    }
+
+    .contact-form {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .map {
+      border: 1px solid #ccc;
+      height: 400px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Мой Сайт</div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contact.html" class="active">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Связаться с нами</h1>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+7 (999) 123-45-67</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>info@example.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>г. Москва, ул. Примерная, д. 10</span>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-telegram"></i>
+        <span>@example_support</span>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Форма обратной связи</h2>
+      <form action="send.php" method="post">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+
+    <div class="map">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A70e06acfc39a6bcc22b9ff39c1cdbf5867fc8f7241e31d01cdb41c34fee433f8&amp;source=constructor" frameborder="0"></iframe>
+    </div>
+  </div>
+
+</body>
+</html>
