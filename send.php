@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = htmlspecialchars(trim($_POST["name"]));
     $email = htmlspecialchars(trim($_POST["email"]));
-    $message = htmlspecialchars(trim($_POST["message"]));
+    $message = nl2br(htmlspecialchars(trim($_POST["message"])));
 
     // Email
     $to = "salonkrasoti2015@yandex.ru";
@@ -19,11 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p><strong>Сообщение:</strong><br>$message</p>
     </body></html>";
 
-    mail($to, $subject, $html, $headers);
+    // Отправка Email
+    if (mail($to, $subject, $html, $headers)) {
+        $email_result = "✅ Письмо отправлено на email.";
+    } else {
+        $email_result = "❌ Ошибка при отправке письма.";
+    }
 
     // Telegram
-    $token = "YOUR_BOT_TOKEN";           // ← замени на свой токен
-    $chat_id = "YOUR_CHAT_ID";           // ← замени на свой Chat ID (или username без @)
+    $token = "ТВОЙ_ТОКЕН_БОТА";        // ← замени
+    $chat_id = "ТВОЙ_CHAT_ID";         // ← замени
 
     $text = "📩 *Новое сообщение с сайта*\n\n"
           . "👤 *Имя:* `$name`\n"
@@ -32,12 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $keyboard = [
         "inline_keyboard" => [
-            [
-                ["text" => "📥 Ответить по Email", "url" => "mailto:$email"]
-            ],
-            [
-                ["text" => "🌐 Открыть сайт", "url" => "https://example.com"] // ← замени на свой сайт
-            ]
+            [["text" => "📥 Ответить по Email", "url" => "mailto:$email"]],
+            [["text" => "🌐 Открыть сайт", "url" => "https://example.com"]]
         ]
     ];
 
@@ -49,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ];
 
     $url = "https://api.telegram.org/bot$token/sendMessage?" . http_build_query($data);
-    file_get_contents($url);
+    $telegram_result = file_get_contents($url);
 
-    echo "Сообщение отправлено!";
+    echo $email_result;
 }
 ?>
