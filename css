@@ -1,0 +1,7 @@
+.container {
+  max-width: 960px;
+  margin: 100px auto 0; /* отступ сверху для меню */
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
