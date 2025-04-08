@@ -8,15 +8,61 @@
   <style>
     body {
       margin: 0;
-      background-color: #e0f2ff; /* голубой фон */
+      background-color: #e0f2ff;
       font-family: 'Segoe UI', sans-serif;
       color: #333;
     }
 
-    .container {
+    /* Фиксированное горизонтальное меню */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      z-index: 999;
+    }
+
+    .nav-container {
       max-width: 960px;
       margin: 0 auto;
-      background-color: #fff; /* белая область по центру */
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+      color: #0056b3;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 100px auto 0;
+      background-color: #fff;
       padding: 40px;
       box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
@@ -106,21 +152,22 @@
   </style>
 </head>
 <body>
+
+  <!-- Навигация -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">Мой Сайт</div>
-      <div class="burger" onclick="toggleMenu()">☰</div>
-      <ul id="nav-menu">
+      <ul>
         <li><a href="index.html">Главная</a></li>
         <li><a href="history.html">История</a></li>
-        <li><a href=".html">О нас</a></li>
+        <li><a href="about.html">О нас</a></li>
         <li><a href="contact.html" class="active">Контакты</a></li>
       </ul>
     </div>
   </nav>
 
-  <body>
-    <div class="container">
+  <!-- Контент -->
+  <div class="container">
     <h1>Связаться с нами</h1>
 
     <div class="contact-info">
@@ -159,10 +206,9 @@
     </div>
 
     <div class="map">
-      <!-- ВСТАВЬ сюда свой iframe из Яндекс Карт -->
-   
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A70e06acfc39a6bcc22b9ff39c1cdbf5867fc8f7241e31d01cdb41c34fee433f8&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A70e06acfc39a6bcc22b9ff39c1cdbf5867fc8f7241e31d01cdb41c34fee433f8&amp;source=constructor" frameborder="0"></iframe>
     </div>
   </div>
+
 </body>
 </html>
