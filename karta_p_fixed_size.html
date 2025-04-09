@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Интерактивная карта Чухломского района</title>
+  <style>
+    body {
+      opacity: 0;
+      animation: fadeInBody 1s ease forwards;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .page-layout {
+      margin-left: 200px;
+      margin-left: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f1ee;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: row;
+    }
+    .yellow-bar {
+      width: 80px;
+      background-color: #f6e58d;
+      height: 100%;
+    }
+    .main-content {
+      max-width: 1000px;
+      flex-grow: 1;
+      position: relative;
+      text-align: center;
+    }
+    .map-container {
+      transition: background-color 0.4s ease;
+      position: relative;
+      width: 100%;
+      height: 600px;
+      background: #ddd;
+      overflow: auto;
+      transition: height 0.5s ease;
+    }
+    .map-container.expanded {
+      height: 100vh;
+    }
+    .map-container img {
+      width: 1000px;
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .stop-button, .start-button, .view-all-button, .theme-toggle-button {
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #777;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+    }
+    .stop-button:hover, .start-button:hover, .view-all-button:hover, .theme-toggle-button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+    .point {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: red;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .point:hover {
+      transform: scale(1.3);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+    .marker-box {
+      position: absolute;
+      background-color: white;
+      padding: 4px 8px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .guide {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: blue;
+      border: 2px solid white;
+      z-index: 999;
+      transition: top 0.8s ease, left 0.8s ease;
+      display: none;
+    }
+    .tooltip {
+      position: absolute;
+      background-color: #fff8dc;
+      color: #333;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tooltip.animate {
+      animation: fadeInScale 0.4s ease;
+    }
+    @keyframes fadeInBody {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .point.active {
+      box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.7);
+      transform: scale(1.2);
+    }
+    .dark-mode {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+    .dark-mode .map-container {
+      background-color: #2a2a2a;
+    }
+    .dark-mode .marker-box,
+    .dark-mode .tooltip {
+      background-color: #333;
+      border-color: #555;
+      color: #fff;
+    }
+    .dark-mode .point {
+      background-color: #ff6666;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<header style="width: 200px; background-color: #f0f0f0; padding: 20px; height: 100vh; box-shadow: 2px 0 5px rgba(0,0,0,0.1); position: fixed; left: 0; top: 0;">
+  <nav>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+      <li><form action="index.html"><button type="submit" style="width: 100%; padding: 10px; background-color: #dcdcdc; border: none; border-radius: 6px; cursor: pointer;">Главная</button></form></li>
+      <li><form action="history.html"><button type="submit" style="width: 100%; padding: 10px; background-color: #dcdcdc; border: none; border-radius: 6px; cursor: pointer;">История</button></form></li>
+      <li>
+        <details>
+          <summary style="cursor: pointer; padding: 10px; background-color: #dcdcdc; border-radius: 6px; text-align: center;">Храмы</summary>
+          <ul style="list-style: none; padding-left: 10px; margin-top: 10px;">
+            <li><form action="mirohanovo.html"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">с. Мироханово</button></form></li>
+            <li><form action="povalihino.html"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">с. Повалихино</button></form></li>
+            <li><form action="church_rizo.html"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">Храм Ризоположения</button></form></li>
+            <li><form action="church_vlad.html"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">Церковь иконы Божией Матери Владимирская</button></form></li>
+            <li><form action="hicolo_church.html"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">Церковь Николая Чудотворца</button></form></li>
+            <li><form action="#"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">Церковь Воскрешение Христово</button></form></li>
+            <li><form action="#"><button type="submit" style="width: 100%; padding: 6px; background-color: #eee; border: none; border-radius: 4px; cursor: pointer; text-align: left;">Церковь Введения Пресвятой Богородицы</button></form></li>
+          </ul>
+        </details>
+      </li>
+      <li><form action="karta.html"><button type="submit" style="width: 100%; padding: 10px; background-color: #dcdcdc; border: none; border-radius: 6px; cursor: pointer;">Карта</button></form></li>
+      <li><form action="contact.html"><button type="submit" style="width: 100%; padding: 10px; background-color: #dcdcdc; border: none; border-radius: 6px; cursor: pointer;">Контакты</button></form></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('header nav li:nth-child(3)');
+    dropdown.addEventListener('mouseenter', () => {
+      dropdown.querySelector('ul').style.display = 'block';
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      dropdown.querySelector('ul').style.display = 'none';
+    });
+  });
+</script>
+
+  <div class="page-layout">
+    <div class="yellow-bar"></div>
+    <div class="main-content">
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <button class="start-button" id="start-tour">Начать экскурсию</button>
+  <button class="stop-button" id="stop-tour" hidden>Стоп</button>
+  <button class="view-all-button" onclick="toggleMapSize()">Смотреть всю карту</button>
+  <button class="theme-toggle-button" onclick="toggleTheme()">🌙 Ночной режим</button>
+</div>
+      <div class="map-container" id="mapContainer">
+        <img src="karta_t.jpg" alt="Карта Золотого кольца Чухломы" />
+        <div class="guide" id="guide"></div>
+        <div id="tooltip" class="tooltip"></div>
+    <div class="point" style="top: 43%; left: 29%;" data-info="с. Мироханово"></div>
+    <div class="marker marker-box" style="top: calc(43% + 3%); left: calc(29% + 2%);">
+      <div class="marker-title">с. Мироханово</div>
+    </div>
+    
+    <div class="point" style="top: 29%; left: 78%;" data-info="с. Повалихино"></div>
+    <div class="marker marker-box" style="top: calc(29% + 3%); left: calc(78% + 2%);">
+      <div class="marker-title">с. Повалихино</div>
+    </div>
+    
+    <div class="point" style="top: 23%; left: 49%;" data-info="ур. Николо-Остров"></div>
+    <div class="marker marker-box" style="top: calc(23% + 3%); left: calc(49% + 2%);">
+      <div class="marker-title">ур. Николо-Остров</div>
+    </div>
+    
+    <div class="point" style="top: 61%; left: 56%;" data-info="Вознесенское"></div>
+    <div class="marker marker-box" style="top: calc(61% + 3%); left: calc(56% + 2%);">
+      <div class="marker-title">Вознесенское</div>
+    </div>
+    
+    <div class="point" style="top: 38%; left: 67%;" data-info="ур. Озорниково"></div>
+    <div class="marker marker-box" style="top: calc(38% + 3%); left: calc(67% + 2%);">
+      <div class="marker-title">ур. Озорниково</div>
+    </div>
+    
+
+        <div class="point" style="top: 45%; left: 40%;" data-info="Село Мироханово. Церковь и постройки XIX века."></div>
+        <div class="marker marker-box" style="top: 49%; left: 42%;">
+          <div class="marker-title">Село Мироханово</div>
+          <div class="marker-description">Церковь и постройки XIX века.</div>
+        </div>
+      </div>
+    </div>
+    <div class="yellow-bar"></div>
+  </div>
+  <script>
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const themeBtn = document.querySelector('.theme-toggle-button');
+      themeBtn.textContent = isDark ? '☀️ Дневной режим' : '🌙 Ночной режим';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    function toggleMapSize() {
+      const map = document.getElementById('mapContainer');
+      const button = document.querySelector('.view-all-button');
+      map.classList.toggle('expanded');
+      button.textContent = map.classList.contains('expanded') ? 'Свернуть карту' : 'Смотреть всю карту';
+      map.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.theme-toggle-button').textContent = '☀️ Дневной режим';
+      }
+    });
+  </script>
+<section style="padding: 20px; max-width: 1000px; margin: 0 auto; font-size: 18px; line-height: 1.6;">
+<h2>История города Чухломы</h2>
+<p>История города Чухломы</p>
+<p>Чухлома расположена на 58°28' северной широты и 60°37' восточной долготы, на северо-восточном берегу Чухломского озера, площадь которого составляет 43 км². Расстояние от Чухломы до Костромы составляет 178 км, а до железнодорожной станции Галич — 55 км. Город находится на холмистой местности с суглинистыми почвами. Герб Чухломы включает в себя две части: в верхней изображена ладья Костромской губернии, а в нижней — на голубом фоне скрещённые железные остроги, символизирующие важность рыбного промысла для города.</p>
+</section>
+</body>
+</html>
