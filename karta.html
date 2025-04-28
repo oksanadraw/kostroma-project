@@ -1,9 +1,9 @@
-   
-    <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <title>Карта Чухломского района</title>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   <style>
     html, body {
       height: 100%;
@@ -48,7 +48,6 @@
       padding: 10px;
     }
   </style>
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 
@@ -76,8 +75,8 @@
 <script>
 ymaps.ready(function () {
     var map = new ymaps.Map("map", {
-        center: [58.80, 43.70], // Точное положение Чухломского района
-        zoom: 12 // Увеличенный масштаб
+        center: [58.80, 43.70],
+        zoom: 12
     });
 
     var places = [
@@ -90,20 +89,14 @@ ymaps.ready(function () {
         { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Деревня рядом с лесами и реками." }
     ];
 
-    var iconLayout = 'default#image';
-    var iconImageHref = 'https://cdn-icons-png.flaticon.com/512/809/809957.png'; // Иконка домика
-    var iconImageSize = [30, 30];
-    var iconImageOffset = [-15, -30];
-
     places.forEach(function(place) {
         var placemark = new ymaps.Placemark(place.coords, {
+            iconContent: place.name, // Текст прямо на метке
             balloonContentHeader: `<b>${place.name}</b>`,
             balloonContentBody: `<p>${place.description}</p>`,
         }, {
-            iconLayout: iconLayout,
-            iconImageHref: iconImageHref,
-            iconImageSize: iconImageSize,
-            iconImageOffset: iconImageOffset
+            preset: 'islands#blueStretchyIcon', // Синяя красивая метка с текстом
+            draggable: false
         });
         map.geoObjects.add(placemark);
     });
