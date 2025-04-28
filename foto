@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фото и Видео</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #004080;
+    }
+    .button-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button-section a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #004080;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    .button-section a:hover {
+      background: #0066cc;
+    }
+    .media-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .media-block {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+    .media-block img, .media-block video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .media-block p {
+      margin: 10px 0 0;
+      padding: 0 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Фото и Видео</h1>
+
+<div class="button-section">
+  <a href="index.html">Главная</a>
+  <a href="news.html">Новости</a>
+  <a href="karta.html">Карта</a>
+  <a href="history.html">История</a>
+  <a href="contacts.html">Контакты</a>
+</div>
+
+<div class="media-section">
+
+  <!-- Фото блок -->
+  <div class="media-block">
+    <img src="photos/photo1.jpg" alt="Фотогалерея">
+    <p>Фотогалерея</p>
+  </div>
+
+  <!-- Видео блок -->
+  <div class="media-block">
+    <video controls>
+      <source src="videos/video1.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+    <p>Видеогалерея</p>
+  </div>
+
+</div>
+
+</body>
+</html>
