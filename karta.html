@@ -6,135 +6,70 @@
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
-      font-family: Arial, sans-serif;
+      margin: 0;
     }
-
     #map {
       width: 100%;
       height: 100%;
     }
-
-    #controls, #toggleOverlay {
+    #toggleOverlay {
       position: absolute;
       top: 10px;
       left: 10px;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.9);
       padding: 10px;
       border-radius: 8px;
-      font-size: 14px;
-    }
-
-    #toggleOverlay {
-      top: auto;
-      bottom: 10px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
+      z-index: 1000;
+      font-family: sans-serif;
     }
   </style>
 </head>
 <body>
 
-<!-- Панель фильтров -->
-<div id="controls">
-  <label><input type="checkbox" class="filter" value="settlement" checked> Поселения</label>
-  <label><input type="checkbox" class="filter" value="river" checked> Реки</label>
-  <label><input type="checkbox" class="filter" value="lake" checked> Озёра</label>
-  <label><input type="checkbox" class="filter" value="church" checked> Церкви и монастыри</label>
-</div>
-
-<!-- Переключатель исторической карты -->
+<!-- Переключатель исторического слоя -->
 <div id="toggleOverlay">
   <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
 </div>
 
-<!-- Карта -->
 <div id="map"></div>
 
 <script>
 ymaps.ready(function () {
   const map = new ymaps.Map("map", {
-    center: [58.75, 43.90],
-    zoom: 9,
+    center: [58.83, 43.74], // Центр вокруг Чухломы и деревень
+    zoom: 11,
     controls: ['zoomControl', 'fullscreenControl']
   });
 
-  const categories = {
-    settlement: [],
-    river: [],
-    lake: [],
-    church: []
-  };
-
-  const places = [
-    // Поселения
-    { name: "Чухлома", coords: [58.7536, 43.8975], description: "Город Чухлома", type: 'settlement' },
-    { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село Мироханово", type: 'settlement' },
-    { name: "Повалихино", coords: [58.8476, 43.6645], description: "Поселение", type: 'settlement' },
-    { name: "Жуково", coords: [58.7955, 43.7944], description: "Деревня Жуково", type: 'settlement' },
-    { name: "Озорниково", coords: [58.8250, 43.6500], description: "Уединённая деревня", type: 'settlement' },
-    { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Деревня", type: 'settlement' },
-    { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Историческое село", type: 'settlement' },
-    { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Старинное поселение", type: 'settlement' },
-
-    // Озёра
-    { name: "Чухломское озеро", coords: [58.77, 43.88], description: "Площадь ~43 км²", type: 'lake' },
-
-    // Реки
-    { name: "Река Сандеба", coords: [58.77, 43.85], description: "Приток Чухломского озера", type: 'river' },
-    { name: "Река Ножега", coords: [58.80, 43.70], description: "Одна из рек края", type: 'river' },
-    { name: "Река Точема", coords: [58.84, 43.75], description: "Река", type: 'river' },
-
-    // Церкви
-    { name: "Авраамиевский монастырь", coords: [58.78, 43.91], description: "XIV век, один из древнейших монастырей", type: 'church' },
-    { name: "Церковь Николая Чудотворца", coords: [58.8565, 43.7187], description: "В селе Мироханово", type: 'church' },
-    { name: "Церковь в Жуково", coords: [58.7957, 43.7940], description: "Церковь XIX века", type: 'church' }
+  const settlements = [
+    { name: "Чухлома", coords: [58.7536, 43.8975], description: "Город Чухлома" },
+    { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село Мироханово" },
+    { name: "Повалихино", coords: [58.8476, 43.6645], description: "Повалихино" },
+    { name: "Жуково", coords: [58.7955, 43.7944], description: "Жуково" },
+    { name: "Озорниково", coords: [58.8250, 43.6500], description: "Озорниково" },
+    { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Вознесенское" },
+    { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Николо-Остров" },
+    { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Лаврентьевское" }
   ];
 
-  places.forEach(place => {
+  settlements.forEach(place => {
     const placemark = new ymaps.Placemark(place.coords, {
-      iconContent: place.name,
-      balloonContentHeader: `<b>${place.name}</b>`,
-      balloonContentBody: place.description
+      hintContent: place.name,
+      balloonContent: `<b>${place.name}</b><br>${place.description}`
     }, {
-      preset: {
-        settlement: 'islands#redStretchyIcon',
-        river: 'islands#greenDotIcon',
-        lake: 'islands#blueDotIcon',
-        church: 'islands#violetStretchyIcon'
-      }[place.type]
+      preset: 'islands#blueCircleIcon',
+      iconColor: '#1E90FF'
     });
 
-    categories[place.type].push(placemark);
     map.geoObjects.add(placemark);
   });
 
-  // Фильтрация по категориям
-  const checkboxes = document.querySelectorAll('.filter');
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-      const type = this.value;
-      categories[type].forEach(placemark => {
-        if (this.checked) {
-          map.geoObjects.add(placemark);
-        } else {
-          map.geoObjects.remove(placemark);
-        }
-      });
-    });
-  });
-
-  // Историческая карта — GroundOverlay
-  const bounds = [[57.0, 41.5], [59.5, 46.5]]; // Юго-запад / северо-восток
+  // Историческая карта (GroundOverlay)
+  const bounds = [[57.0, 41.5], [59.5, 46.5]]; // Примерные границы карты
 
   const overlay = new ymaps.GroundOverlay(
-    "assets kostroma_map.jpg",  // Путь к изображению в репозитории
+    "kostroma_map.jpg",  // Замените путь на свой
     bounds,
     { opacity: 0.6, interactive: false }
   );
