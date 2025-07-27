@@ -43,15 +43,15 @@ ymaps.ready(function () {
   });
 
   const settlements = [
-    { name: "Чухлома", coords: [58.7536, 43.8975], description: "Город Чухлома" },
-    { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село Мироханово" },
-    { name: "Повалихино", coords: [58.8476, 43.6645], description: "Повалихино" },
-    { name: "Жуково", coords: [58.7955, 43.7944], description: "Жуково" },
-    { name: "Озорниково", coords: [58.8250, 43.6500], description: "Озорниково" },
-    { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Вознесенское" },
-    { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Николо-Остров" },
-    { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Лаврентьевское" }
-  ];
+  { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село Мироханово" },
+  { name: "Повалихино", coords: [58.8476, 43.6645], description: "Повалихино" },
+  { name: "Жуково", coords: [58.7955, 43.7944], description: "Жуково" },
+  { name: "Озорниково", coords: [58.8250, 43.6500], description: "Озорниково" },
+  { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Вознесенское" },
+  { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Николо-Остров" },
+  { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Лаврентьевское" }
+];
+
 
   settlements.forEach(place => {
     const placemark = new ymaps.Placemark(place.coords, {
