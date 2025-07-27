@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -9,95 +9,63 @@
       height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
     }
-    .sidebar {
-      width: 250px;
-      background: #004080;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .sidebar a {
-      display: block;
-      margin-bottom: 10px;
-      text-decoration: none;
-      color: white;
-      background: #0066cc;
-      padding: 10px;
-      border-radius: 8px;
-    }
-    .content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .header {
-      background: #004080;
-      padding: 20px;
-      color: white;
-      text-align: center;
-    }
+
     #map {
-      flex: 1;
-    }
-    .footer {
-      background: #004080;
-      color: white;
-      text-align: center;
-      padding: 10px;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <h2>Меню</h2>
-  <a href="index.html">Главная</a>
-  <a href="news.html">Новости</a>
-  <a href="karta.html">Карта</a>
-  <a href="foto.html"> Фото и видео</a>
-  <a href="about.html">Контакты</a>
-</div>
-
-<div class="content">
-  <div class="header">
-    <h1>Карта Чухломского района</h1>
-  </div>
-
-  <div id="map"></div>
-
-  <div class="footer">
-    &copy; 2025 Кострома. Все права защищены.
-  </div>
-</div>
+<div id="map"></div>
 
 <script>
 ymaps.ready(function () {
     var map = new ymaps.Map("map", {
-        center: [58.80, 43.70],
-        zoom: 12
+        center: [58.85, 43.70],
+        zoom: 10,
+        controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
     });
 
+    // Список объектов
     var places = [
-        { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Историческое село Чухломского района." },
-        { name: "Жуково", coords: [58.7955, 43.7944], description: "Тихая деревня на берегу леса." },
-        { name: "Повалихино", coords: [58.8476, 43.6645], description: "Старинное поселение с красивой природой." },
-        { name: "Озорниково", coords: [58.8250, 43.6500], description: "Уединённая деревня в центре района." },
-        { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Место с богатой историей и традициями." },
+        // Города и сёла
+        { name: "Чухлома", coords: [58.7536, 43.8975], description: "Город Чухлома – административный центр." },
         { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село с живописными окрестностями." },
-        { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Деревня рядом с лесами и реками." }
+        { name: "Повалихино", coords: [58.8476, 43.6645], description: "Старинное поселение." },
+        { name: "Жуково", coords: [58.7955, 43.7944], description: "Тихая деревня." },
+        { name: "Озорниково", coords: [58.8250, 43.6500], description: "Уединённая деревня." },
+        { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Деревня у реки." },
+        { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Историческое село." },
+        { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Место с историей." },
+
+        // Озёра
+        { name: "Чухломское озеро", coords: [58.77, 43.88], description: "Площадь 43 км².", icon: 'islands#blueDotIcon' },
+
+        // Реки
+        { name: "Река Сандеба", coords: [58.77, 43.85], description: "Приток Чухломского озера.", icon: 'islands#greenDotIcon' },
+        { name: "Река Ножега", coords: [58.80, 43.70], description: "Одна из рек Чухломского края.", icon: 'islands#greenDotIcon' },
+        { name: "Река Точема", coords: [58.84, 43.75], description: "Река в Чухломском уезде.", icon: 'islands#greenDotIcon' },
+
+        // Церкви и монастыри
+        { name: "Авраамиевский монастырь", coords: [58.78, 43.91], description: "Основан в XIV веке." },
+        { name: "Церковь Николая Чудотворца", coords: [58.8565, 43.7187], description: "В селе Мироханово." },
+        { name: "Церковь в Жуково", coords: [58.7957, 43.7940], description: "Церковь XIX века." },
     ];
 
+    // Добавление меток
     places.forEach(function(place) {
         var placemark = new ymaps.Placemark(place.coords, {
-            iconContent: place.name, // Текст прямо на метке
-            balloonContentHeader: `<b>${place.name}</b>`,
-            balloonContentBody: `<p>${place.description}</p>`,
+            iconContent: place.name,
+            balloonContentHeader: `<strong>${place.name}</strong>`,
+            balloonContentBody: place.description
         }, {
-            preset: 'islands#blueStretchyIcon', // Синяя красивая метка с текстом
+            preset: place.icon || 'islands#redStretchyIcon',
             draggable: false
         });
+
         map.geoObjects.add(placemark);
     });
 });
