@@ -4,162 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Карта Чухломского района</title>
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+  <!-- Стандартное подключение API Яндекс.Карт -->
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
+      margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif;
     }
-
-    /* Меню */
-    nav {
-      background-color: #004080;
-    }
-
+    nav { background-color: #004080; }
     nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+      list-style: none; margin: 0; padding: 0;
+      display: flex; justify-content: center; gap: 20px;
     }
-
-    nav ul li {
-      position: relative;
-    }
-
+    nav ul li { position: relative; }
     nav ul li a {
-      display: block;
-      padding: 12px 20px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+      display: block; padding: 12px 20px;
+      color: white; text-decoration: none; font-weight: bold;
     }
-
-    nav ul li:hover > a {
-      background-color: #0066cc;
-    }
-
+    nav ul li:hover > a { background-color: #0066cc; }
     nav ul li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #004080;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      z-index: 1000;
+      display: none; position: absolute; top: 100%; left: 0;
+      background-color: #004080; list-style: none;
+      margin: 0; padding: 0; z-index:1000;
     }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li a { white-space: nowrap; padding: 10px 15px; }
 
-    nav ul li:hover ul {
-      display: block;
-    }
-
-    nav ul li ul li a {
-      white-space: nowrap;
-      padding: 10px 15px;
-    }
-
-    #map {
-      width: 100%;
-      height: calc(100% - 50px);
-    }
-
+    #map { width: 100%; height: calc(100% - 50px); }
     #toggleOverlay {
-      position: absolute;
-      top: 60px;
-      left: 10px;
-      background: rgba(255,255,255,0.95);
-      padding: 10px;
-      border-radius: 8px;
-      z-index: 1000;
+      position: absolute; top: 60px; left: 10px;
+      background: rgba(255,255,255,0.95); padding:10px;
+      border-radius:8px; z-index:1000;
     }
   </style>
 </head>
 <body>
 
-<!-- Меню -->
-<nav>
-  <ul>
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="history.html">История</a></li>
-    <li>
-      <a href="#">Храмы</a>
-      <ul>
-        <li><a href="mirohanovo.html">с. Мироханово</a></li>
-        <li><a href="povalihino.html">с. Повалихино</a></li>
-        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-        <li><a href="church_vlad.html">Владимирская церковь</a></li>
-        <li><a href="hicolo_church.html">Николо-Остров</a></li>
-      </ul>
-    </li>
-    <li><a href="karta.html">Карта</a></li>
-    <li><a href="contact.html">Контакты</a></li>
-  </ul>
-</nav>
+  <!-- Меню -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История</a></li>
+      <li>
+        <a href="#">Храмы</a>
+        <ul>
+          <li><a href="mirohanovo.html">с. Мироханово</a></li>
+          <li><a href="povalihino.html">с. Повалихино</a></li>
+          <li><a href="church_rizo.html">Храм Ризоположения</a></li>
+          <li><a href="church_vlad.html">Владимирская церковь</a></li>
+          <li><a href="hicolo_church.html">Николо-Остров</a></li>
+        </ul>
+      </li>
+      <li><a href="karta.html">Карта</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
 
-<!-- Переключатель исторической карты -->
-<div id="toggleOverlay">
-  <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
-</div>
+  <!-- Переключатель исторической карты -->
+  <div id="toggleOverlay">
+    <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
+  </div>
 
-<!-- Карта -->
-<div id="map"></div>
+  <!-- Контейнер для карты -->
+  <div id="map"></div>
 
-<!-- Скрипт карты -->
-<script>
-ymaps.ready(function () {
-  const map = new ymaps.Map("map", {
-    center: [58.83, 43.74],
-    zoom: 11,
-    controls: ['zoomControl', 'fullscreenControl']
-  });
+  <script>
+    // Инициализация после загрузки API
+    ymaps.ready(init);
+    function init() {
+      const map = new ymaps.Map("map", {
+        center: [58.83, 43.74],
+        zoom: 11,
+        controls: ['zoomControl', 'fullscreenControl']
+      });
 
-  // Точки деревень
-  const settlements = [
-    { name: "Мироханово", coords: [58.8567, 43.7188] },
-    { name: "Повалихино", coords: [58.8476, 43.6645] },
-    { name: "Жуково", coords: [58.7955, 43.7944] },
-    { name: "Озорниково", coords: [58.8250, 43.6500] },
-    { name: "Вознесенское", coords: [58.8428, 43.7521] },
-    { name: "Николо-Остров", coords: [58.8768, 43.6051] },
-    { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
-  ];
+      // Метки деревень
+      const settlements = [
+        { name: "Мироханово", coords: [58.8567, 43.7188] },
+        { name: "Повалихино", coords: [58.8476, 43.6645] },
+        { name: "Жуково", coords: [58.7955, 43.7944] },
+        { name: "Озорниково", coords: [58.8250, 43.6500] },
+        { name: "Вознесенское", coords: [58.8428, 43.7521] },
+        { name: "Николо-Остров", coords: [58.8768, 43.6051] },
+        { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
+      ];
+      settlements.forEach(place => {
+        const placemark = new ymaps.Placemark(place.coords, {
+          iconCaption: place.name,
+          balloonContent: `<strong>${place.name}</strong>`
+        }, {
+          preset: 'islands#blueCircleDotIconWithCaption'
+        });
+        map.geoObjects.add(placemark);
+      });
 
-  settlements.forEach(place => {
-    const placemark = new ymaps.Placemark(place.coords, {
-      iconCaption: place.name,
-      balloonContent: `<strong>${place.name}</strong>`
-    }, {
-      preset: 'islands#blueCircleDotIconWithCaption'
-    });
+      // Исторический слой
+      const bounds = [[58.6, 43.3], [59.0, 44.0]];
+      const overlay = new ymaps.GroundOverlay(
+        "kostroma_map.jpg", // файл в корне репозитория
+        bounds,
+        { opacity: 0.6, interactive: false }
+      );
 
-    map.geoObjects.add(placemark);
-  });
-
-  // Историческая карта (внешний URL)
-  const bounds = [[58.6, 43.3], [59.0, 44.0]];
-
-  const overlay = new ymaps.GroundOverlay(
-    "https://kostroma.pages.dev/kostroma_map.jpg",
-    bounds,
-    { opacity: 0.6, interactive: false }
-  );
-
-  document.getElementById('historicalToggle').addEventListener('change', function () {
-    if (this.checked) {
-      map.geoObjects.add(overlay);
-    } else {
-      map.geoObjects.remove(overlay);
+      // Обработчик чекбокса
+      document.getElementById('historicalToggle').addEventListener('change', function () {
+        if (this.checked) {
+          map.geoObjects.add(overlay);
+        } else {
+          map.geoObjects.remove(overlay);
+        }
+      });
     }
-  });
-});
-</script>
+  </script>
 
 </body>
 </html>
+
+    
+   
 
