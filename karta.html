@@ -13,16 +13,17 @@
       font-family: Arial, sans-serif;
     }
 
+    /* Меню */
     nav {
       background-color: #004080;
     }
 
     nav ul {
       list-style: none;
-      display: flex;
-      justify-content: center;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
       gap: 20px;
     }
 
@@ -38,19 +39,20 @@
       font-weight: bold;
     }
 
-    nav ul li a:hover {
+    nav ul li:hover > a {
       background-color: #0066cc;
     }
 
     nav ul li ul {
       display: none;
       position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #004080;
       list-style: none;
       padding: 0;
       margin: 0;
-      top: 100%;
-      left: 0;
+      z-index: 1000;
     }
 
     nav ul li:hover ul {
@@ -59,11 +61,12 @@
 
     nav ul li ul li a {
       white-space: nowrap;
+      padding: 10px 15px;
     }
 
     #map {
       width: 100%;
-      height: calc(100% - 50px); /* учёт высоты меню */
+      height: calc(100% - 50px);
     }
 
     #toggleOverlay {
@@ -79,7 +82,7 @@
 </head>
 <body>
 
-<!-- Горизонтальное меню -->
+<!-- Меню -->
 <nav>
   <ul>
     <li><a href="index.html">Главная</a></li>
@@ -99,13 +102,15 @@
   </ul>
 </nav>
 
-<!-- Переключатель слоя -->
+<!-- Переключатель исторической карты -->
 <div id="toggleOverlay">
   <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
 </div>
 
+<!-- Карта -->
 <div id="map"></div>
 
+<!-- Скрипт карты -->
 <script>
 ymaps.ready(function () {
   const map = new ymaps.Map("map", {
@@ -136,11 +141,11 @@ ymaps.ready(function () {
     map.geoObjects.add(placemark);
   });
 
-  // Наложение исторической карты
+  // Историческая карта (внешний URL)
   const bounds = [[58.6, 43.3], [59.0, 44.0]];
 
   const overlay = new ymaps.GroundOverlay(
-    "kostroma_map.jpg", // 🔥 Файл должен быть в корне
+    "https://kostroma.pages.dev/kostroma_map.jpg",
     bounds,
     { opacity: 0.6, interactive: false }
   );
@@ -157,3 +162,4 @@ ymaps.ready(function () {
 
 </body>
 </html>
+
