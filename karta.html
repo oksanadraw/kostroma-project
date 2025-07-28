@@ -1,63 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Карта Чухломского района</title>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
+      margin: 0;
       font-family: Arial, sans-serif;
     }
-
-    /* Меню */
-    .menu {
-      display: flex;
-      justify-content: center;
-      background: #004080;
-      padding: 12px;
-      gap: 20px;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     #map {
       width: 100%;
-      height: calc(100% - 48px); /* с учётом меню */
+      height: 100%;
     }
-
     #toggleOverlay {
       position: absolute;
-      top: 60px;
+      top: 10px;
       left: 10px;
       background: rgba(255,255,255,0.9);
       padding: 10px;
       border-radius: 8px;
       z-index: 1000;
-      font-family: sans-serif;
     }
   </style>
 </head>
 <body>
 
-<!-- Горизонтальное меню -->
-<div class="menu">
-  <a href="index.html">Главная</a>
-  <a href="news.html">Новости</a>
-  <a href="karta.html">Карта</a>
-  <a href="foto.html">Фото и видео</a>
-  <a href="contact.html">Контакты</a>
-</div>
-
 <!-- Переключатель слоя -->
 <div id="toggleOverlay">
-  <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
+  <label>
+    <input type="checkbox" id="historicalToggle" />
+    Историческая карта (XIX в.)
+  </label>
 </div>
 
 <div id="map"></div>
@@ -65,25 +41,26 @@
 <script>
 ymaps.ready(function () {
   const map = new ymaps.Map("map", {
-    center: [58.83, 43.74],
+    center: [58.83, 43.74], // Центр Чухломского района
     zoom: 11,
     controls: ['zoomControl', 'fullscreenControl']
   });
 
+  // Метки деревень
   const settlements = [
-    { name: "Мироханово", coords: [58.8567, 43.7188], description: "Село Мироханово" },
-    { name: "Повалихино", coords: [58.8476, 43.6645], description: "Повалихино" },
-    { name: "Жуково", coords: [58.7955, 43.7944], description: "Жуково" },
-    { name: "Озорниково", coords: [58.8250, 43.6500], description: "Озорниково" },
-    { name: "Вознесенское", coords: [58.8428, 43.7521], description: "Вознесенское" },
-    { name: "Николо-Остров", coords: [58.8768, 43.6051], description: "Николо-Остров" },
-    { name: "Лаврентьевское", coords: [58.7805, 43.7252], description: "Лаврентьевское" }
+    { name: "Мироханово", coords: [58.8567, 43.7188] },
+    { name: "Повалихино", coords: [58.8476, 43.6645] },
+    { name: "Жуково", coords: [58.7955, 43.7944] },
+    { name: "Озорниково", coords: [58.8250, 43.6500] },
+    { name: "Вознесенское", coords: [58.8428, 43.7521] },
+    { name: "Николо-Остров", coords: [58.8768, 43.6051] },
+    { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
   ];
 
   settlements.forEach(place => {
     const placemark = new ymaps.Placemark(place.coords, {
       iconCaption: place.name,
-      balloonContent: `<b>${place.name}</b><br>${place.description}`
+      balloonContent: `<strong>${place.name}</strong>`
     }, {
       preset: 'islands#blueCircleDotIconWithCaption',
       iconColor: '#1E90FF'
@@ -92,25 +69,22 @@ ymaps.ready(function () {
     map.geoObjects.add(placemark);
   });
 
-  // Историческая карта
+  // Координаты для наложения исторической карты
   const bounds = [[58.6, 43.3], [59.0, 44.0]];
 
-const overlay = new ymaps.GroundOverlay(
-  "kostroma_map.jpg",  // Файл в корне
-  bounds,
-  {
-    opacity: 0.6,
-    interactive: false
-  }
-);
+  const overlay = new ymaps.GroundOverlay(
+    "kostroma_map.jpg",  // 🔥 Файл должен лежать в корне
+    bounds,
+    { opacity: 0.6, interactive: false }
+  );
 
-document.getElementById('historicalToggle').addEventListener('change', function () {
-  if (this.checked) {
-    map.geoObjects.add(overlay);
-  } else {
-    map.geoObjects.remove(overlay);
-  }
-});
+  document.getElementById('historicalToggle').addEventListener('change', function () {
+    if (this.checked) {
+      map.geoObjects.add(overlay);
+    } else {
+      map.geoObjects.remove(overlay);
+    }
+  });
 });
 </script>
 
