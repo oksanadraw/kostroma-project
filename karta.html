@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Карта Чухломского района</title>
-  <!-- Стандартное подключение API Яндекс.Карт -->
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
     }
     nav { background-color: #004080; }
     nav ul {
@@ -24,7 +25,7 @@
     nav ul li ul {
       display: none; position: absolute; top: 100%; left: 0;
       background-color: #004080; list-style: none;
-      margin: 0; padding: 0; z-index:1000;
+      margin: 0; padding: 0; z-index: 1000;
     }
     nav ul li:hover ul { display: block; }
     nav ul li ul li a { white-space: nowrap; padding: 10px 15px; }
@@ -32,93 +33,80 @@
     #map { width: 100%; height: calc(100% - 50px); }
     #toggleOverlay {
       position: absolute; top: 60px; left: 10px;
-      background: rgba(255,255,255,0.95); padding:10px;
-      border-radius:8px; z-index:1000;
+      background: rgba(255,255,255,0.95); padding: 10px;
+      border-radius: 8px; z-index: 1000;
+    }
+    #overlayImg {
+      display: none; position: absolute;
+      top: 50px; left: 0;
+      width: 100%; height: calc(100% - 50px);
+      opacity: 0.6; pointer-events: none; z-index: 1000;
     }
   </style>
 </head>
 <body>
 
-  <!-- Меню -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="history.html">История</a></li>
-      <li>
-        <a href="#">Храмы</a>
-        <ul>
-          <li><a href="mirohanovo.html">с. Мироханово</a></li>
-          <li><a href="povalihino.html">с. Повалихино</a></li>
-          <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-          <li><a href="church_vlad.html">Владимирская церковь</a></li>
-          <li><a href="hicolo_church.html">Николо-Остров</a></li>
-        </ul>
-      </li>
-      <li><a href="karta.html">Карта</a></li>
-      <li><a href="contact.html">Контакты</a></li>
-    </ul>
-  </nav>
+<nav>
+  <ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="history.html">История</a></li>
+    <li>
+      <a href="#">Храмы</a>
+      <ul>
+        <li><a href="mirohanovo.html">с. Мироханово</a></li>
+        <li><a href="povalihino.html">с. Повалихино</a></li>
+        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
+        <li><a href="church_rizo.html">Владимирская церковь</a></li>
+        <li><a href="hicolo_church.html">Николо-Остров</a></li>
+      </ul>
+    </li>
+    <li><a href="karta.html">Карта</a></li>
+    <li><a href="contact.html">Контакты</a></li>
+  </ul>
+</nav>
 
-  <!-- Переключатель исторической карты -->
-  <div id="toggleOverlay">
-    <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
-  </div>
+<div id="toggleOverlay">
+  <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
+</div>
 
-  <!-- Контейнер для карты -->
-  <div id="map"></div>
+<div id="map"></div>
+<img id="overlayImg" src="kostroma_map.jpg" alt="Историческая карта">
 
-  <script>
-    // Инициализация после загрузки API
-    ymaps.ready(init);
-    function init() {
-      const map = new ymaps.Map("map", {
-        center: [58.83, 43.74],
-        zoom: 11,
-        controls: ['zoomControl', 'fullscreenControl']
-      });
-
-      // Метки деревень
-      const settlements = [
-        { name: "Мироханово", coords: [58.8567, 43.7188] },
-        { name: "Повалихино", coords: [58.8476, 43.6645] },
-        { name: "Жуково", coords: [58.7955, 43.7944] },
-        { name: "Озорниково", coords: [58.8250, 43.6500] },
-        { name: "Вознесенское", coords: [58.8428, 43.7521] },
-        { name: "Николо-Остров", coords: [58.8768, 43.6051] },
-        { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
-      ];
-      settlements.forEach(place => {
-        const placemark = new ymaps.Placemark(place.coords, {
-          iconCaption: place.name,
-          balloonContent: `<strong>${place.name}</strong>`
-        }, {
-          preset: 'islands#blueCircleDotIconWithCaption'
-        });
-        map.geoObjects.add(placemark);
-      });
-
-      // Исторический слой
-      const bounds = [[58.6, 43.3], [59.0, 44.0]];
-      const overlay = new ymaps.GroundOverlay(
-        "kostroma_map.jpg", // файл в корне репозитория
-        bounds,
-        { opacity: 0.6, interactive: false }
-      );
-
-      // Обработчик чекбокса
-      document.getElementById('historicalToggle').addEventListener('change', function () {
-        if (this.checked) {
-          map.geoObjects.add(overlay);
-        } else {
-          map.geoObjects.remove(overlay);
-        }
-      });
-    }
-  </script>
+<script>
+(function loadYandexMaps(){
+  function initMap() {
+    const map = new ymaps.Map("map", {
+      center: [58.83, 43.74],
+      zoom: 11,
+      controls: ['zoomControl','fullscreenControl']
+    });
+    const settlements = [
+      { name: "Мироханово", coords: [58.8567, 43.7188] },
+      { name: "Повалихино", coords: [58.8476, 43.6645] },
+      { name: "Жуково", coords: [58.7955, 43.7944] },
+      { name: "Озорниково", coords: [58.8250, 43.6500] },
+      { name: "Вознесенское", coords: [58.8428, 43.7521] },
+      { name: "Николо-Остров", coords: [58.8768, 43.6051] },
+      { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
+    ];
+    settlements.forEach(place => {
+      const placemark = new ymaps.Placemark(place.coords, { iconCaption: place.name }, { preset: 'islands#blueCircleDotIconWithCaption' });
+      map.geoObjects.add(placemark);
+    });
+    document.getElementById('historicalToggle').addEventListener('change', function(){
+      document.getElementById('overlayImg').style.display = this.checked ? 'block' : 'none';
+    });
+  }
+  if (typeof ymaps !== 'undefined') {
+    ymaps.ready(initMap);
+  } else {
+    var script = document.createElement('script');
+    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    script.onload = function(){ ymaps.ready(initMap); };
+    document.head.appendChild(script);
+  }
+})();
+</script>
 
 </body>
 </html>
-
-    
-   
-
