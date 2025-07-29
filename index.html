@@ -34,13 +34,17 @@
       align-items: center;
       justify-content: space-between;
       padding: var(--gap) 0;
+      flex-wrap: wrap;
     }
-    .logo { font-size: 1.5rem; font-weight: bold; color: var(--color-primary); }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--color-primary);
+    }
     nav ul {
       display: flex;
       gap: var(--gap);
       list-style: none;
-      position: relative;
     }
     nav a {
       padding: 8px 12px;
@@ -50,6 +54,31 @@
     nav a:hover {
       background: var(--color-accent);
       color: #fff;
+    }
+
+    /* Search */
+    .search-form {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .search-form input[type="text"] {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius) 0 0 var(--radius);
+      width: 200px;
+    }
+    .search-form button {
+      padding: 6px 12px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      cursor: pointer;
+    }
+    .search-form button:hover {
+      background: var(--color-accent);
     }
 
     /* Dropdown menu */
@@ -148,6 +177,10 @@
           <li><a href="contact.html">Контакты</a></li>
         </ul>
       </nav>
+      <form class="search-form" action="search.html" method="get">
+        <input type="text" name="q" placeholder="Поиск по сайту">
+        <button type="submit">Найти</button>
+      </form>
     </header>
 
     <div class="content-container">
@@ -155,10 +188,12 @@
         <a href="news.html">Новости</a>
         <a href="foto.html">Фото и Видео</a>
         <a href="museum.html">Музеи</a>
-        <a href="#">Документы</a>
+        <a href="tver.html">Тверь и Тверская область</a>
+        <a href="ivanovo.html">Иваново и Ивановская область</a>
+        <a href="yaroslavl.html">Ярославль и Ярославская область</a>
       </aside>
       <main>
-        <img src="images/IMG_3334.jpg" alt="река Волга" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius); margin-bottom: var(--gap);">
+        <img src="images/IMG_3334.jpg" alt="Пейзаж Чухлома" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius); margin-bottom: var(--gap);">
 
         <p>Архитектурное наследие Костромской губернии. Исторический центр Костромы – это уникальный пример гармоничного соединения архитектуры, истории и духа русской провинции, расположенный на живописных берегах Волги, он является символом богатого культурного наследия России, сохранившимся на протяжении веков.</p>
         <p>Миссия проекта: Сохранение культурного кода, святынь Отечества, популяризация храмовой архитектуры Костромской губернии. Мы стремимся изучать, документировать, сохранять и делиться знаниями о культурном наследии региона, чтобы вдохновить людей на личное участие в проекте.</p>
