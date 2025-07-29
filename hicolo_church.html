@@ -5,78 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Церковь Николая Чудотворца</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f6f9;
       color: #333;
-      display: flex;
     }
 
     header {
       background-color: #2980b9;
       padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 1000;
     }
 
-    nav.horizontal {
+    nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
-      margin: 0;
-      padding: 0;
     }
 
-    nav.horizontal li {
-      margin: 0 15px;
+    nav ul li {
       position: relative;
+      margin: 0 15px;
     }
 
-    nav.horizontal li a {
+    nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
       padding: 8px 12px;
+      display: block;
     }
 
-    nav.horizontal li ul {
+    nav ul li ul {
       display: none;
       position: absolute;
       top: 100%;
       left: 0;
       background-color: #2980b9;
-      padding: 10px;
       list-style: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      padding: 10px;
+      min-width: 200px;
     }
 
-    nav.horizontal li:hover ul {
+    nav ul li:hover ul {
       display: block;
     }
 
-    nav.horizontal li ul li {
+    nav ul li ul li {
       margin: 5px 0;
     }
 
-    nav.horizontal li ul li a {
+    nav ul li ul li a {
       color: #fff;
-      padding: 5px 10px;
-      display: block;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 70px;
     }
 
     aside {
       width: 220px;
       background-color: #dbe9f4;
       padding: 20px;
-      margin-top: 60px;
       box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-      height: 100vh;
+      min-height: calc(100vh - 70px);
     }
 
     aside h2 {
@@ -87,7 +91,6 @@
 
     aside ul {
       list-style: none;
-      padding: 0;
     }
 
     aside ul li {
@@ -101,7 +104,7 @@
 
     main {
       flex: 1;
-      padding: 80px 40px 40px 40px;
+      padding: 40px;
     }
 
     h1 {
@@ -133,7 +136,7 @@
 <body>
   <header>
     <nav>
-      <ul class="horizontal">
+      <ul>
         <li><a href="index.html">Главная</a></li>
         <li><a href="history.html">История</a></li>
         <li>
@@ -151,25 +154,27 @@
     </nav>
   </header>
 
-  <aside>
-    <h2>Храмы</h2>
-    <ul>
-      <li><a href="mirohanovo.html">с. Мироханово</a></li>
-      <li><a href="povalihino.html">с. Повалихино</a></li>
-      <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-      <li><a href="church_vlad.html">Церковь Владимирская</a></li>
-      <li><a href="church_nikolai.html">Церковь Николая Чудотворца</a></li>
-    </ul>
-  </aside>
+  <div class="container">
+    <aside>
+      <h2>Храмы</h2>
+      <ul>
+        <li><a href="mirohanovo.html">с. Мироханово</a></li>
+        <li><a href="povalihino.html">с. Повалихино</a></li>
+        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
+        <li><a href="church_vlad.html">Церковь Владимирская</a></li>
+        <li><a href="church_nikolai.html">Церковь Николая Чудотворца</a></li>
+      </ul>
+    </aside>
 
-  <main>
-    <h1>Церковь Николая Чудотворца</h1>
-    <p>Обычно храмы в сельской местности строились «всем миром». Примером является церковь Николая Чудотворца, Никола – остров урочище Чухломской уезд, Костромской области.</p>
-    <div class="image-container">
-      <img src="Hicolsk_1.JPG" alt="Храм Николая Чудотворца">
-      <img src="Hicolsk.JPG" alt="Храм Николая Чудотворца">
-      <img src="Hicolsk_2.JPG" alt="Храм Николая Чудотворца">
-    </div>
-  </main>
+    <main>
+      <h1>Церковь Николая Чудотворца</h1>
+      <p>Обычно храмы в сельской местности строились «всем миром». Примером является церковь Николая Чудотворца, Никола – остров урочище Чухломской уезд, Костромской области.</p>
+      <div class="image-container">
+        <img src="Hicolsk_1.JPG" alt="Храм Николая Чудотворца">
+        <img src="Hicolsk.JPG" alt="Храм Николая Чудотворца">
+        <img src="Hicolsk_2.JPG" alt="Храм Николая Чудотворца">
+      </div>
+    </main>
+  </div>
 </body>
 </html>
