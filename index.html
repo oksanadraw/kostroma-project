@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ё<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -40,6 +40,7 @@
       display: flex;
       gap: var(--gap);
       list-style: none;
+      position: relative;
     }
     nav a {
       padding: 8px 12px;
@@ -51,6 +52,36 @@
       color: #fff;
     }
 
+    /* Dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--color-primary);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+    .submenu li a {
+      display: block;
+      padding: 8px 12px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .submenu li a:hover {
+      background: var(--color-accent);
+    }
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
     /* Content */
     main {
       margin-top: var(--gap);
@@ -58,19 +89,6 @@
     p {
       text-align: justify;
       margin-bottom: var(--gap);
-    }
-
-    /* Gallery */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--gap);
-      justify-content: center;
-      margin-bottom: var(--gap);
-    }
-    .gallery img {
-      max-width: 300px;
-      border-radius: var(--radius);
     }
 
     /* Sidebar */
@@ -85,7 +103,6 @@
       padding: var(--gap);
       border-radius: var(--radius);
     }
-    /* Преобразуем кнопки в простые ссылки */
     .sidebar a {
       display: block;
       margin-bottom: 12px;
@@ -117,7 +134,16 @@
         <ul>
           <li><a href="index.html">Главная</a></li>
           <li><a href="history.html">История</a></li>
-          <li><a href="#">Храмы</a></li>
+          <li class="dropdown">
+            <a href="#">Храмы ▾</a>
+            <ul class="submenu">
+              <li><a href="mirohanovo.html">с. Мироханово</a></li>
+              <li><a href="povalihino.html">с. Повалихино</a></li>
+              <li><a href="church_rizo.html">Храм Ризоположения</a></li>
+              <li><a href="church_vlad.html">Церковь Владимирской иконы</a></li>
+              <li><a href="hicolo_church.html">Церковь Николая Чудотворца</a></li>
+            </ul>
+          </li>
           <li><a href="karta.html">Карта</a></li>
           <li><a href="contact.html">Контакты</a></li>
         </ul>
@@ -132,11 +158,8 @@
         <a href="#">Документы</a>
       </aside>
       <main>
-        <section class="gallery">
-          <img src="images/IMG_3363 _2.jpg" alt="Кострома Фото 1">
-          <img src="images/kostroma.jpg" alt="Кострома Фото 2">
-          <img src="images/ipat_monastery.jpg" alt="Ипатьевский монастырь">
-        </section>
+        <img src="images/IMG_3334.jpg" alt="Пейзаж Чухлома" style="width: 100%; height: auto; border-radius: var(--radius); margin-bottom: var(--gap);">
+
         <p>Архитектурное наследие Костромской губернии. Исторический центр Костромы – это уникальный пример гармоничного соединения архитектуры, истории и духа русской провинции, расположенный на живописных берегах Волги, он является символом богатого культурного наследия России, сохранившимся на протяжении веков.</p>
         <p>Миссия проекта: Сохранение культурного кода, святынь Отечества, популяризация храмовой архитектуры Костромской губернии. Мы стремимся изучать, документировать, сохранять и делиться знаниями о культурном наследии региона, чтобы вдохновить людей на личное участие в проекте.</p>
         <p>Исторический центр Костромы – это уникальный пример гармоничного соединения архитектуры, истории и духа русской провинции, расположенный на живописных берегах Волги, он является символом богатого культурного наследия России, сохранившимся на протяжении веков. Кострома, основанная в 1152 году, сыграла значительную роль в становлении Русского государства. Исторический центр города сформировался в XVIII веке, когда после разрушительного пожара 1773 года была утверждена регулярная планировка. Радиально-кольцевая структура, напоминающая лучи солнца, не только придала городу уникальный облик, но и воплотила в себе стремление к упорядоченности и гармонии, характерное для того времени.</p>
@@ -151,5 +174,3 @@
   </div>
 </body>
 </html>
-
-    
