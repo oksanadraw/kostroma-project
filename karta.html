@@ -2,25 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Карта храмов Чухломского района</title>
-  <meta name="description" content="Карта храмов и исторических поселений Чухломского района Костромской области с координатами объектов.">
+  <title>Интерактивная карта храмов Чухломского района</title>
+  <meta name="description" content="Интерактивная карта храмов Чухломского района с фотографиями, координатами и страницами объектов. Главный объект — церковь Николая Чудотворца в Николо-Острове.">
   <link rel="canonical" href="https://church-costroma.ru/karta.html">
-  <meta property="og:type" content="website"><meta property="og:title" content="Карта храмов Чухломского района"><meta property="og:description" content="Объекты проекта, координаты и историческая карта."><meta property="og:image" content="https://church-costroma.ru/assets/images/chukhloma-map.jpg">
-  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
+  <meta property="og:type" content="website"><meta property="og:title" content="Интерактивная карта храмов Чухломского района"><meta property="og:description" content="Выберите отметку, чтобы увидеть фотографию и сведения о храме."><meta property="og:image" content="https://church-costroma.ru/assets/images/nikolo-ostrov-1.jpg"><meta property="og:url" content="https://church-costroma.ru/karta.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=3"><script defer src="site.js?v=3"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Перейти к содержанию</a>
   <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html" aria-current="page">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
   <main id="main-content">
-    <header class="page-hero"><span class="eyebrow">География проекта</span><h1>Карта объектов</h1><p>Исторические поселения и храмы Чухломского района. Координаты собраны из материалов проекта и требуют полевой проверки.</p></header>
-    <section class="section section--compact"><div class="map-layout"><div><div class="map-image"><a href="assets/images/chukhloma-map.jpg"><img src="assets/images/chukhloma-map.jpg" width="1800" height="1000" alt="Карта Чухломского района с отмеченными объектами" loading="eager"></a></div><p class="muted">Карту можно открыть в полном размере. Отметки отражают рабочую географию проекта.</p></div><div class="map-list">
-      <article class="map-card" id="mirohanovo"><span class="card-kicker">Село</span><h2>Мироханово</h2><p class="coordinates">58.8567, 43.7188</p><a href="mirohanovo.html">Страница объекта →</a></article>
-      <article class="map-card" id="povalihino"><span class="card-kicker">Село</span><h2>Повалихино</h2><p class="coordinates">58.8476, 43.6645</p><a href="povalihino.html">Страница объекта →</a></article>
-      <article class="map-card" id="zhukovo"><span class="card-kicker">Село</span><h2>Жуково</h2><p class="coordinates">58.7955, 43.7944</p><a href="church_rizo.html">Церковь Ризоположения →</a></article>
-      <article class="map-card" id="ozornikovo"><span class="card-kicker">Село</span><h2>Озорниково</h2><p class="coordinates">58.8250, 43.6500</p><a href="church_vlad.html">Владимирская церковь →</a></article>
-      <article class="map-card" id="nikolo-ostrov"><span class="card-kicker">Урочище</span><h2>Николо-Остров</h2><p class="coordinates">58.8768, 43.6051</p><a href="hicolo_church.html">Церковь Николая Чудотворца →</a></article>
-    </div></div></section>
-    <section class="section section--tinted"><div class="story"><div class="story__media"><a href="assets/images/region-map.jpg"><img src="assets/images/region-map.jpg" width="651" height="891" alt="Административная карта Костромской области" loading="lazy" decoding="async"></a></div><article class="prose-card prose"><h2>От области к отдельному объекту</h2><p>Административная карта помогает увидеть положение Чухломского района в составе Костромской области. Для каждого объекта в каталоге приводятся рабочие координаты.</p><p>Если вы заметили неточность или можете уточнить местоположение утраченного храма, сообщите об этом проекту.</p><p><a href="contact.html">Предложить исправление →</a></p></article></div></section>
+    <header class="page-hero"><span class="eyebrow">География проекта</span><h1>Интерактивная карта храмов</h1><p>Нажмите на отметку, чтобы увидеть объект, его фотографию и координаты. Первым открыт храм Николая Угодника в Николо-Острове.</p></header>
+    <section class="section section--compact" data-interactive-map>
+      <div class="interactive-map-layout">
+        <div>
+          <div class="interactive-map" aria-label="Карта объектов Чухломского района">
+            <img src="assets/images/chukhloma-map.jpg" width="1800" height="1000" alt="Карта Чухломского района" loading="eager">
+            <button class="map-pin map-pin--nikolo" type="button" data-map-target="nikolo-ostrov" aria-pressed="true"><span>1</span><strong>Николо-Остров</strong></button>
+            <button class="map-pin map-pin--mirohanovo" type="button" data-map-target="mirohanovo" aria-pressed="false"><span>2</span><strong>Мироханово</strong></button>
+            <button class="map-pin map-pin--povalihino" type="button" data-map-target="povalihino" aria-pressed="false"><span>3</span><strong>Повалихино</strong></button>
+            <button class="map-pin map-pin--ozornikovo" type="button" data-map-target="ozornikovo" aria-pressed="false"><span>4</span><strong>Озорниково</strong></button>
+            <button class="map-pin map-pin--zhukovo" type="button" data-map-target="zhukovo" aria-pressed="false"><span>5</span><strong>Жуково</strong></button>
+          </div>
+          <p class="muted">Отметки отражают рабочие координаты проекта. Картой можно пользоваться с клавиатуры: переходите между кнопками клавишей Tab.</p>
+        </div>
+        <div class="map-details" aria-live="polite">
+          <article class="map-focus" data-map-panel="nikolo-ostrov"><img src="assets/images/nikolo-ostrov-1.jpg" width="960" height="1280" alt="Церковь Николая Чудотворца в Николо-Острове"><div class="map-focus__body"><span class="card-kicker">Главный объект · урочище Николо-Остров</span><h2>Храм Николая Угодника</h2><p>Церковь Николая Чудотворца — каменный сельский храмовый комплекс в лесном ландшафте Чухломского района.</p><p class="coordinates">58.8768, 43.6051</p><a class="button" href="hicolo_church.html">Открыть страницу храма</a></div></article>
+          <article class="map-focus" data-map-panel="mirohanovo" hidden><img src="assets/images/mirohanovo-now.jpg" width="150" height="113" alt="Храм в селе Мироханово"><div class="map-focus__body"><span class="card-kicker">Село Мироханово</span><h2>Храм и поселение</h2><p>Архивный и современный виды памятника, материалы о поселении.</p><p class="coordinates">58.8567, 43.7188</p><a class="button" href="mirohanovo.html">Открыть страницу объекта</a></div></article>
+          <article class="map-focus map-focus--text" data-map-panel="povalihino" hidden><div class="map-focus__body"><span class="card-kicker">Село Повалихино</span><h2>Храмы Повалихина</h2><p>Раздел об историческом поселении пополняется по мере проверки фотографий и архивных сведений.</p><p class="coordinates">58.8476, 43.6645</p><a class="button" href="povalihino.html">Открыть страницу объекта</a></div></article>
+          <article class="map-focus" data-map-panel="ozornikovo" hidden><img src="assets/images/vladimir-sign.jpg" width="1280" height="960" alt="Информационная табличка Владимирской церкви в Озорникове"><div class="map-focus__body"><span class="card-kicker">Село Озорниково</span><h2>Владимирская церковь</h2><p>Каменный храм 1824 года, построенный в стиле классицизма.</p><p class="coordinates">58.8250, 43.6500</p><a class="button" href="church_vlad.html">Открыть страницу храма</a></div></article>
+          <article class="map-focus map-focus--text" data-map-panel="zhukovo" hidden><div class="map-focus__body"><span class="card-kicker">Село Жуково</span><h2>Церковь Ризоположения</h2><p>Страница объекта и материалы, ожидающие дальнейшего уточнения.</p><p class="coordinates">58.7955, 43.7944</p><a class="button" href="church_rizo.html">Открыть страницу храма</a></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section--tinted"><div class="story"><div class="story__media"><img src="assets/images/nikolo-ostrov-2.jpg" width="960" height="1280" alt="Колокольня церкви Николая Чудотворца" loading="lazy" decoding="async"></div><article class="prose-card prose"><span class="eyebrow">Храм Николая Угодника</span><h2>Николо-Остров — центральный объект карты</h2><p>На странице храма собраны фотографии фасада, колокольни, портика и интерьера. Интерактивная отметка на карте открывается первой, чтобы посетитель сразу видел главный объект проекта.</p><p><a class="button" href="hicolo_church.html">Смотреть храм и фотографии</a></p></article></div></section>
   </main>
   <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="hramy.html">Каталог храмов</a><a href="contact.html">Уточнить координаты</a></div></div></footer>
 </body>
