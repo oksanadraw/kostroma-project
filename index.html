@@ -3,209 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Верхнее Поволжье. Архитектура XIX века</title>
-  <style>
-    :root {
-      --color-bg: #ffffff;
-      --color-primary: #004080;
-      --color-accent: #1E90FF;
-      --color-text: #333333;
-      --radius: 6px;
-      --gap: 16px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Times New Roman", serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--gap);
-    }
-
-    /* Header */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--gap) 0;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--color-primary);
-    }
-    nav ul {
-      display: flex;
-      gap: var(--gap);
-      list-style: none;
-    }
-    nav a {
-      padding: 8px 12px;
-      border-radius: var(--radius);
-      transition: background .2s;
-    }
-    nav a:hover {
-      background: var(--color-accent);
-      color: #fff;
-    }
-
-    /* Search */
-    .search-form {
-      margin-top: 10px;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .search-form input[type="text"] {
-      padding: 6px;
-      border: 1px solid #ccc;
-      border-radius: var(--radius) 0 0 var(--radius);
-      width: 200px;
-    }
-    .search-form button {
-      padding: 6px 12px;
-      background: var(--color-primary);
-      color: white;
-      border: none;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      cursor: pointer;
-    }
-    .search-form button:hover {
-      background: var(--color-accent);
-    }
-
-    /* Dropdown menu */
-    .dropdown {
-      position: relative;
-    }
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--color-primary);
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      z-index: 1000;
-    }
-    .submenu li a {
-      display: block;
-      padding: 8px 12px;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .submenu li a:hover {
-      background: var(--color-accent);
-    }
-    .dropdown:hover .submenu {
-      display: block;
-    }
-
-    /* Content */
-    main {
-      margin-top: var(--gap);
-    }
-    p {
-      text-align: justify;
-      margin-bottom: var(--gap);
-    }
-
-    /* Sidebar */
-    .content-container {
-      display: flex;
-      gap: var(--gap);
-      margin-top: var(--gap);
-    }
-    .sidebar {
-      width: 200px;
-      background: var(--color-primary);
-      padding: var(--gap);
-      border-radius: var(--radius);
-    }
-    .sidebar a {
-      display: block;
-      margin-bottom: 12px;
-      padding: 4px 0;
-      background: none;
-      border-radius: 0;
-      color: #ffffff;
-      transition: color .2s;
-    }
-    .sidebar a:hover {
-      color: var(--color-accent);
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: var(--gap) 0;
-      font-size: 0.85rem;
-      color: #777;
-    }
-  </style>
+  <title>Храмы Верхнего Поволжья — архитектурное наследие Костромского края</title>
+  <meta name="description" content="Проект об архитектурном наследии Костромского края: сельские храмы, история Чухломского района, карты, фотографии и архивные материалы.">
+  <link rel="canonical" href="https://church-costroma.ru/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Храмы Верхнего Поволжья">
+  <meta property="og:description" content="Архитектурное наследие Костромского края, история храмов и фотоархив.">
+  <meta property="og:url" content="https://church-costroma.ru/">
+  <meta property="og:image" content="https://church-costroma.ru/assets/images/nikolo-ostrov-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script defer src="site.js?v=2"></script>
 </head>
 <body>
-  <div class="wrapper">
-    <header>
-      <div class="logo">Верхнее Поволжье</div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="history.html">История</a></li>
-          <li class="dropdown">
-            <a href="#">Храмы ▾</a>
-            <ul class="submenu">
-              <li><a href="mirohanovo.html">с. Мироханово</a></li>
-              <li><a href="povalihino.html">с. Повалихино</a></li>
-              <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-              <li><a href="church_vlad.html">Церковь Владимирской иконы</a></li>
-              <li><a href="hicolo_church.html">Церковь Николая Чудотворца</a></li>
-            </ul>
-          </li>
-          <li><a href="karta.html">Карта</a></li>
-          <li><a href="contact.html">Контакты</a></li>
-        </ul>
-      </nav>
-      <form class="search-form" action="search.html" method="get">
-        <input type="text" name="q" placeholder="Поиск по сайту">
-        <button type="submit">Найти</button>
-      </form>
-    </header>
-
-    <div class="content-container">
-      <aside class="sidebar">
-        <a href="news.html">Новости</a>
-        <a href="foto.html">Фото и Видео</a>
-        <a href="museum.html">Музеи</a>
-        <a href="tver.html">Тверь и Тверская область</a>
-        <a href="ivanovo.html">Иваново и Ивановская область</a>
-        <a href="yaroslavl.html">Ярославль и Ярославская область</a>
-      </aside>
-      <main>
-        <img src="images/IMG_3334.jpg" alt="Пейзаж Чухлома" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius); margin-bottom: var(--gap);">
-
-        <p>Архитектурное наследие Костромской губернии. Исторический центр Костромы – это уникальный пример гармоничного соединения архитектуры, истории и духа русской провинции, расположенный на живописных берегах Волги, он является символом богатого культурного наследия России, сохранившимся на протяжении веков.</p>
-        <p>Миссия проекта: Сохранение культурного кода, святынь Отечества, популяризация храмовой архитектуры Костромской губернии. Мы стремимся изучать, документировать, сохранять и делиться знаниями о культурном наследии региона, чтобы вдохновить людей на личное участие в проекте.</p>
-        <p>Исторический центр Костромы – это уникальный пример гармоничного соединения архитектуры, истории и духа русской провинции, расположенный на живописных берегах Волги, он является символом богатого культурного наследия России, сохранившимся на протяжении веков. Кострома, основанная в 1152 году, сыграла значительную роль в становлении Русского государства. Исторический центр города сформировался в XVIII веке, когда после разрушительного пожара 1773 года была утверждена регулярная планировка. Радиально-кольцевая структура, напоминающая лучи солнца, не только придала городу уникальный облик, но и воплотила в себе стремление к упорядоченности и гармонии, характерное для того времени.</p>
-        <p>Одним из ключевых элементов центра является Сусанинская площадь, названная в честь Ивана Сусанина – героя, чье имя тесно связано с историей Костромы. От площади расходятся улицы, ведущие к другим значимым памятникам архитектуры: Ипатьевскому монастырю, известному как "колыбель дома Романовых", который является одним из главных символов города. Именно здесь Михаил Романов был избран первым царём новой династии, что определило дальнейшую судьбу страны. Богоявленско-Анастасиин монастырь отражает богатую православную традицию региона.</p>
-        <p>Источники:<br>
-          Труды Чухломского Отделения Костромского Научного Общества и Чухломского музея/ Выпуск IV Л.Н.Казаринов «Прошлое Чухломского края»: Чухлома, 2007.<br>
-          Кострома: Историческая энциклопедия / Гл. ред. А.К. Шустов. – Кострома: ООО «Костромаиздат-850», 2002.
-        </p>
-        <p>&copy; 2025 Костромская губерния. Все права защищены.</p>
-      </main>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a>
+      <nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html" aria-current="page">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button>
     </div>
-  </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Костромской край · Чухломской район</span>
+        <h1>Архитектура, история и память места</h1>
+        <p class="hero__lead">Проект собирает сведения о сельских храмах Верхнего Поволжья, документирует их современное состояние и сохраняет материалы для будущих исследований.</p>
+        <div class="actions"><a class="button" href="hramy.html">Открыть каталог храмов</a><a class="button button--ghost" href="karta.html">Посмотреть карту</a></div>
+      </div>
+      <div class="hero__media"><img src="assets/images/nikolo-ostrov-1.jpg" width="960" height="1280" alt="Церковь Николая Чудотворца в урочище Николо-Остров" fetchpriority="high"></div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="mission-title">
+      <div class="section-heading"><div><span class="eyebrow">О проекте</span><h2 id="mission-title">Сохранение культурного кода</h2></div><p>Изучаем, документируем и делимся знаниями об архитектурном наследии Костромского края.</p></div>
+      <div class="card-grid">
+        <article class="card"><div class="card__body"><span class="card-kicker">Исследование</span><h3>История края</h3><p>Материалы о Чухломском районе, его поселениях и формировании культурного ландшафта.</p></div></article>
+        <article class="card"><div class="card__body"><span class="card-kicker">Документация</span><h3>Каталог объектов</h3><p>Отдельные страницы храмов с фотографиями, местоположением и проверенными сведениями.</p></div></article>
+        <article class="card"><div class="card__body"><span class="card-kicker">Архив</span><h3>Фото и видео</h3><p>Современные съёмки, архивные изображения и материалы полевых поездок.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="objects-title">
+      <div class="section-heading"><div><span class="eyebrow">Избранные объекты</span><h2 id="objects-title">Храмы и поселения</h2></div><a href="hramy.html">Весь каталог →</a></div>
+      <div class="heritage-grid">
+        <a class="heritage-card" href="hicolo_church.html"><img src="assets/images/nikolo-ostrov-2.jpg" width="960" height="1280" alt="Архитектура церкви Николая Чудотворца" loading="lazy" decoding="async"><div class="heritage-card__body"><span class="card-kicker">Николо-Остров</span><h3>Церковь Николая Чудотворца</h3><p>Каменный храмовый комплекс в лесном ландшафте Чухломского района.</p></div></a>
+        <a class="heritage-card" href="church_vlad.html"><img src="assets/images/vladimir-sign.jpg" width="1280" height="960" alt="Информационная табличка Владимирской церкви" loading="lazy" decoding="async"><div class="heritage-card__body"><span class="card-kicker">Озорниково</span><h3>Владимирская церковь</h3><p>Храм 1824 года в стиле классицизма, объект регионального значения.</p></div></a>
+        <a class="heritage-card" href="mirohanovo.html"><img src="assets/images/mirohanovo-now.jpg" width="150" height="113" alt="Церковь в Мироханове" loading="lazy" decoding="async"><div class="heritage-card__body"><span class="card-kicker">Мироханово</span><h3>Сельский храм</h3><p>Архивные и современные материалы о храме и поселении.</p></div></a>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="story">
+        <div class="story__media"><img src="assets/images/chukhloma-lake.jpg" width="640" height="480" alt="Чухломское озеро" loading="lazy" decoding="async"></div>
+        <article class="prose-card prose"><span class="eyebrow">Контекст</span><h2>Чухломской край</h2><p>История местных храмов неотделима от озёр, лесов, старых дорог и небольших поселений. Архитектурные памятники помогают увидеть, как развивалась территория и как общины сохраняли свои святыни.</p><p><a href="history.html">Читать историю края →</a></p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="news.html">Новости проекта</a><a href="contact.html">Обратная связь</a></div></div></footer>
 </body>
 </html>

@@ -1,148 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Новости</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      display: flex;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
-    .sidebar {
-      width: 250px;
-      background: #004080;
-      padding: 20px;
-      box-sizing: border-box;
-      color: #fff;
-    }
-    .sidebar h2 {
-      font-size: 20px;
-      margin: 0 0 20px;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar ul li {
-      margin-bottom: 15px;
-    }
-    .sidebar ul li a {
-      display: block;
-      padding: 10px 15px;
-      background-color: #0066cc;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-    .sidebar ul li a:hover {
-      background-color: #004080;
-    }
-    .content {
-      flex: 1;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin: 20px;
-      box-sizing: border-box;
-    }
-    .header {
-      background: #004080;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    .header h1 {
-      margin: 0;
-    }
-    .back-home {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      background: #fff;
-      color: #004080;
-      padding: 5px 10px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    .back-home:hover {
-      background: #e0e0e0;
-    }
-    .media-section {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-    }
-    .media-section h2 {
-      color: #004080;
-      margin-bottom: 20px;
-    }
-    .media-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .gallery {
-      flex: 1;
-      min-width: 300px;
-      text-align: center;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-    }
-    .gallery p {
-      margin: 10px 0 0;
-      font-size: 16px;
-      color: #333;
-    }
-    .footer {
-      text-align: center;
-      padding: 10px;
-      background: #004080;
-      color: #fff;
-      margin-top: 40px;
-    }
-  </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Новости и материалы проекта — Храмы Верхнего Поволжья</title>
+  <meta name="description" content="Новые разделы, публикации и материалы проекта о храмовом наследии Костромского края.">
+  <link rel="canonical" href="https://church-costroma.ru/news.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Новости проекта"><meta property="og:description" content="Новые материалы о храмовом наследии Костромского края."><meta property="og:image" content="https://church-costroma.ru/assets/images/archive-1.jpg">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
 </head>
 <body>
-  <nav class="sidebar">
-    <h2>Меню</h2>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="#">Новости</a></li>
-      <li><a href="foto.html">Фото и Видео</a></li>
-      <li><a href="about.html">О нас</a></li>
-      <li><a href="contact.html">Контакты</a></li>
-    </ul>
-  </nav>
-
-  <div class="content">
-    <header class="header">
-      <h1>Новости</h1>
-      <a href="index.html" class="back-home">Вернуться на главную</a>
-    </header>
-
-    <section class="news-block">
-      <iframe src="/news/news.html" style="width:100%; min-height:2000px; border:none;"></iframe>
-    </section>
-
-   
-
-    <footer class="footer">
-      &copy; 2025 Кострома. Все права защищены.
-    </footer>
-  </div>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
+  <main id="main-content">
+    <header class="page-hero"><span class="eyebrow">Новости проекта</span><h1>Новые материалы</h1><p>Разделы сайта и направления, по которым продолжается работа с архивом.</p></header>
+    <section class="section section--compact"><div class="news-grid">
+      <article class="news-card"><span class="card-kicker">Каталог</span><h2>Обновлены страницы храмов</h2><p>Объекты собраны в едином каталоге. Неподтверждённые фотографии и сведения исключены до уточнения.</p><p><a href="hramy.html">Открыть каталог →</a></p></article>
+      <article class="news-card"><span class="card-kicker">География</span><h2>Собрана карта объектов</h2><p>На одной странице представлены поселения, рабочие координаты и историческая карта Чухломского района.</p><p><a href="karta.html">Посмотреть карту →</a></p></article>
+      <article class="news-card"><span class="card-kicker">Архив</span><h2>Фото и видео доступны без iframe</h2><p>Материалы полевых поездок собраны в адаптивной медиатеке и открываются на любых устройствах.</p><p><a href="foto.html">Перейти в медиатеку →</a></p></article>
+    </div></section>
+    <section class="section section--tinted"><article class="notice"><h2>Помогите дополнить проект</h2><p>Редкие фотографии, архивные справки и точные сведения о местоположении объектов особенно ценны. Все материалы проходят проверку перед публикацией.</p><p><a class="button" href="contact.html">Связаться с проектом</a></p></article></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="hramy.html">Каталог храмов</a><a href="contact.html">Обратная связь</a></div></div></footer>
 </body>
 </html>
-
- 

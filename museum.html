@@ -1,180 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Музеи Костромской области</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    :root {
-      --green-dark: #2f4f2f;
-      --green-light: #46724d;
-      --text-gray: #4a4a4a;
-      --bg-light: #f5f5f5;
-      --white: #ffffff;
-      --gap: 16px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-gray);
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* Навигация */
-    .navbar {
-      background: var(--green-dark);
-    }
-    .navbar nav {
-      display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--gap);
-    }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: var(--gap);
-    }
-    .navbar a {
-      display: block;
-      padding: 14px 12px;
-      color: var(--white);
-      font-weight: bold;
-      transition: background .2s;
-    }
-    .navbar a:hover {
-      background: var(--green-light);
-    }
-
-    /* Основной контент */
-    .content {
-      max-width: 1200px;
-      margin: var(--gap) auto;
-      background: var(--white);
-      padding: var(--gap);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .content h1 {
-      text-align: center;
-      color: var(--green-dark);
-      margin-bottom: var(--gap);
-      font-size: 1.6rem;
-    }
-    .content p {
-      text-align: center;
-      font-size: 1.1em;
-      margin-bottom: var(--gap);
-    }
-    ul.museums {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--gap);
-    }
-    ul.museums li {
-      background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      padding: var(--gap);
-      width: calc(33% - var(--gap)*2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    ul.museums li:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .museum-title {
-      font-weight: bold;
-      font-size: 1.3em;
-      margin-bottom: 8px;
-    }
-    .museum-title a:hover {
-      text-decoration: underline;
-    }
-    .description {
-      font-size: 0.95em;
-      color: #636e72;
-    }
-
-    @media (max-width: 768px) {
-      ul.museums li { width: calc(50% - var(--gap)*2); }
-    }
-    @media (max-width: 480px) {
-      ul.museums li { width: 100%; }
-    }
-  </style>
+  <meta name="description" content="Музеи и краеведческие учреждения Костромской области, связанные с историей и архитектурным наследием региона.">
+  <link rel="canonical" href="https://church-costroma.ru/museum.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Музеи Костромской области"><meta property="og:description" content="Исторические, архитектурные и краеведческие коллекции региона."><meta property="og:image" content="https://church-costroma.ru/assets/images/ipatyev-monastery.jpg">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
 </head>
 <body>
-
-  <!-- Главное меню -->
-  <div class="navbar">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="#">Музеи</a></li>
-        <li><a href="history.html">История</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- Основной контент -->
-  <div class="content">
-    <h1>Музеи Костромской области</h1>
-    <p>Ознакомьтесь с богатым культурным наследием региона через экспозиции местных музеев.</p>
-    <ul class="museums">
-      <li>
-        <div class="museum-title">
-          <a href="https://kosmuseum.ru" target="_blank">Костромской государственный историко-архитектурный музей-заповедник</a>
-        </div>
-        <div class="description">
-          Один из крупнейших музеев региона, расположенный в историческом центре Костромы. Экспозиции охватывают историю, архитектуру и культуру края.
-        </div>
-      </li>
-      <li>
-        <div class="museum-title">
-          <a href="https://www.частныемузеи.рф/o-proекте/geografiya/kostromskaya-oblast/muzej-narodnyh-promyslov-petrovskaya-igrushka/" target="_blank">Музей народных промыслов. Петровская игрушка</a>
-        </div>
-        <div class="description">
-          Музей, посвящённый традиционному костромскому игрушечному искусству, с работами народных мастеров и экспонатами ремёсленного наследия.
-        </div>
-      </li>
-      <li>
-        <div class="museum-title">
-          <a href="https://kosmuseum.ru/tickets/zodchestvo-/" target="_blank">Музей деревянного зодчества</a>
-        </div>
-        <div class="description">
-          Экспозиция традиционного деревянного строительства, быта и ремёсел Костромской области с примерами народной архитектуры.
-        </div>
-      </li>
-      <li>
-        <div class="museum-title">
-          <a href="https://kosmuseum.ru/filials/galichskiy-kraevedcheskiy-muzey/" target="_blank">Галичский краеведческий музей</a>
-        </div>
-        <div class="description">
-          Музей в городе Галич, посвящённый истории и культурному наследию региона, с археологическими и этнографическими экспонатами.
-        </div>
-      </li>
-      <li>
-        <div class="museum-title">
-          <a href="https://kosmuseum.ru/filials/nerekhtskiy-kraevedcheskiy-muzey-imeni-n-p-rodionovoy/" target="_blank">Музей истории города Нерехта</a>
-        </div>
-        <div class="description">
-          Музей, рассказывающий об истории и развитии города Нерехта, его культурных традициях и значимых исторических событиях.
-        </div>
-      </li>
-      <li>
-        <div class="museum-title">
-          <a href="http://www.kostromanarод.ru" target="_blank">Костромской музей народного творчества</a>
-        </div>
-        <div class="description">
-          Музей, собравший образцы народного творчества, ремёсел, традиционной одежды и декоративно-прикладного искусства региона.
-        </div>
-      </li>
-    </ul>
-  </div>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html" aria-current="page">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
+  <main id="main-content">
+    <header class="page-hero"><span class="eyebrow">Полезные ресурсы</span><h1>Музеи Костромской области</h1><p>Учреждения, в фондах и экспозициях которых можно продолжить знакомство с историей, архитектурой и культурой региона.</p></header>
+    <section class="section section--compact"><div class="museum-grid">
+      <article class="museum-card"><span class="card-kicker">Кострома</span><h3>Костромской музей-заповедник</h3><p>История, архитектура и культура Костромского края.</p><p><a href="https://kosmuseum.ru" target="_blank" rel="noopener noreferrer">Официальный сайт →</a></p></article>
+      <article class="museum-card"><span class="card-kicker">Кострома</span><h3>Музей деревянного зодчества</h3><p>Традиционное деревянное строительство, быт и ремёсла региона.</p><p><a href="https://kosmuseum.ru/tickets/zodchestvo-/" target="_blank" rel="noopener noreferrer">Официальный сайт →</a></p></article>
+      <article class="museum-card"><span class="card-kicker">Галич</span><h3>Галичский краеведческий музей</h3><p>Археологические, этнографические и исторические коллекции.</p><p><a href="https://kosmuseum.ru/filials/galichskiy-kraevedcheskiy-muzey/" target="_blank" rel="noopener noreferrer">Официальный сайт →</a></p></article>
+      <article class="museum-card"><span class="card-kicker">Нерехта</span><h3>Музей истории города Нерехты</h3><p>История города, его архитектура и культурные традиции.</p><p><a href="https://kosmuseum.ru/filials/nerekhtskiy-kraevedcheskiy-muzey-imeni-n-p-rodionovoy/" target="_blank" rel="noopener noreferrer">Официальный сайт →</a></p></article>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="history.html">История края</a><a href="contact.html">Обратная связь</a></div></div></footer>
 </body>
 </html>

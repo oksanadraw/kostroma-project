@@ -1,112 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Карта Чухломского района</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-    nav { background-color: #004080; }
-    nav ul {
-      list-style: none; margin: 0; padding: 0;
-      display: flex; justify-content: center; gap: 20px;
-    }
-    nav ul li { position: relative; }
-    nav ul li a {
-      display: block; padding: 12px 20px;
-      color: white; text-decoration: none; font-weight: bold;
-    }
-    nav ul li:hover > a { background-color: #0066cc; }
-    nav ul li ul {
-      display: none; position: absolute; top: 100%; left: 0;
-      background-color: #004080; list-style: none;
-      margin: 0; padding: 0; z-index: 1000;
-    }
-    nav ul li:hover ul { display: block; }
-    nav ul li ul li a { white-space: nowrap; padding: 10px 15px; }
-
-    #map { width: 100%; height: calc(100% - 50px); }
-    #toggleOverlay {
-      position: absolute; top: 60px; left: 10px;
-      background: rgba(255,255,255,0.95); padding: 10px;
-      border-radius: 8px; z-index: 1000;
-    }
-    #overlayImg {
-      display: none; position: absolute;
-      top: 50px; left: 0;
-      width: 100%; height: calc(100% - 50px);
-      opacity: 0.6; pointer-events: none; z-index: 1000;
-    }
-  </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Карта храмов Чухломского района</title>
+  <meta name="description" content="Карта храмов и исторических поселений Чухломского района Костромской области с координатами объектов.">
+  <link rel="canonical" href="https://church-costroma.ru/karta.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Карта храмов Чухломского района"><meta property="og:description" content="Объекты проекта, координаты и историческая карта."><meta property="og:image" content="https://church-costroma.ru/assets/images/chukhloma-map.jpg">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
 </head>
 <body>
-
-<nav>
-  <ul>
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="history.html">История</a></li>
-    <li>
-      <a href="#">Храмы</a>
-      <ul>
-        <li><a href="mirohanovo.html">с. Мироханово</a></li>
-        <li><a href="povalihino.html">с. Повалихино</a></li>
-        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-        <li><a href="church_rizo.html">Владимирская церковь</a></li>
-        <li><a href="hicolo_church.html">Николо-Остров</a></li>
-      </ul>
-    </li>
-    <li><a href="karta.html">Карта</a></li>
-    <li><a href="contact.html">Контакты</a></li>
-  </ul>
-</nav>
-
-<div id="toggleOverlay">
-  <label><input type="checkbox" id="historicalToggle"> Историческая карта (XIX в.)</label>
-</div>
-
-<div id="map"></div>
-<img id="overlayImg" src="kostroma_map.jpg" alt="Историческая карта">
-
-<script>
-(function loadYandexMaps(){
-  function initMap() {
-    const map = new ymaps.Map("map", {
-      center: [58.83, 43.74],
-      zoom: 11,
-      controls: ['zoomControl','fullscreenControl']
-    });
-    const settlements = [
-      { name: "Мироханово", coords: [58.8567, 43.7188] },
-      { name: "Повалихино", coords: [58.8476, 43.6645] },
-      { name: "Жуково", coords: [58.7955, 43.7944] },
-      { name: "Озорниково", coords: [58.8250, 43.6500] },
-      { name: "Вознесенское", coords: [58.8428, 43.7521] },
-      { name: "Николо-Остров", coords: [58.8768, 43.6051] },
-      { name: "Лаврентьевское", coords: [58.7805, 43.7252] }
-    ];
-    settlements.forEach(place => {
-      const placemark = new ymaps.Placemark(place.coords, { iconCaption: place.name }, { preset: 'islands#blueCircleDotIconWithCaption' });
-      map.geoObjects.add(placemark);
-    });
-    document.getElementById('historicalToggle').addEventListener('change', function(){
-      document.getElementById('overlayImg').style.display = this.checked ? 'block' : 'none';
-    });
-  }
-  if (typeof ymaps !== 'undefined') {
-    ymaps.ready(initMap);
-  } else {
-    var script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
-    script.onload = function(){ ymaps.ready(initMap); };
-    document.head.appendChild(script);
-  }
-})();
-</script>
-
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html" aria-current="page">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
+  <main id="main-content">
+    <header class="page-hero"><span class="eyebrow">География проекта</span><h1>Карта объектов</h1><p>Исторические поселения и храмы Чухломского района. Координаты собраны из материалов проекта и требуют полевой проверки.</p></header>
+    <section class="section section--compact"><div class="map-layout"><div><div class="map-image"><a href="assets/images/chukhloma-map.jpg"><img src="assets/images/chukhloma-map.jpg" width="1800" height="1000" alt="Карта Чухломского района с отмеченными объектами" loading="eager"></a></div><p class="muted">Карту можно открыть в полном размере. Отметки отражают рабочую географию проекта.</p></div><div class="map-list">
+      <article class="map-card" id="mirohanovo"><span class="card-kicker">Село</span><h2>Мироханово</h2><p class="coordinates">58.8567, 43.7188</p><a href="mirohanovo.html">Страница объекта →</a></article>
+      <article class="map-card" id="povalihino"><span class="card-kicker">Село</span><h2>Повалихино</h2><p class="coordinates">58.8476, 43.6645</p><a href="povalihino.html">Страница объекта →</a></article>
+      <article class="map-card" id="zhukovo"><span class="card-kicker">Село</span><h2>Жуково</h2><p class="coordinates">58.7955, 43.7944</p><a href="church_rizo.html">Церковь Ризоположения →</a></article>
+      <article class="map-card" id="ozornikovo"><span class="card-kicker">Село</span><h2>Озорниково</h2><p class="coordinates">58.8250, 43.6500</p><a href="church_vlad.html">Владимирская церковь →</a></article>
+      <article class="map-card" id="nikolo-ostrov"><span class="card-kicker">Урочище</span><h2>Николо-Остров</h2><p class="coordinates">58.8768, 43.6051</p><a href="hicolo_church.html">Церковь Николая Чудотворца →</a></article>
+    </div></div></section>
+    <section class="section section--tinted"><div class="story"><div class="story__media"><a href="assets/images/region-map.jpg"><img src="assets/images/region-map.jpg" width="651" height="891" alt="Административная карта Костромской области" loading="lazy" decoding="async"></a></div><article class="prose-card prose"><h2>От области к отдельному объекту</h2><p>Административная карта помогает увидеть положение Чухломского района в составе Костромской области. Для каждого объекта в каталоге приводятся рабочие координаты.</p><p>Если вы заметили неточность или можете уточнить местоположение утраченного храма, сообщите об этом проекту.</p><p><a href="contact.html">Предложить исправление →</a></p></article></div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="hramy.html">Каталог храмов</a><a href="contact.html">Уточнить координаты</a></div></div></footer>
 </body>
 </html>

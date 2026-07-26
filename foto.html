@@ -1,96 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Фото и Видео</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #004080;
-    }
-    .button-section {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .button-section a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background: #004080;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-    .button-section a:hover {
-      background: #0066cc;
-    }
-    .media-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .media-block {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      width: 300px;
-      text-align: center;
-      padding-bottom: 10px;
-    }
-    .media-block img, .media-block video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .media-block p {
-      margin: 10px 0 0;
-      padding: 0 10px;
-      color: #333;
-    }
-  </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фото и видео — Храмы Верхнего Поволжья</title>
+  <meta name="description" content="Фотографии храмов, детали архитектуры и видео из поездок по Чухломскому району.">
+  <link rel="canonical" href="https://church-costroma.ru/foto.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Фото и видео храмов Костромского края"><meta property="og:description" content="Фотофиксация и материалы полевых поездок."><meta property="og:image" content="https://church-costroma.ru/assets/images/archive-2.jpg">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
 </head>
 <body>
-
-<h1>Фото и Видео</h1>
-
-<div class="button-section">
-  <a href="index.html">Главная</a>
-  <a href="news.html">Новости</a>
-  <a href="karta.html">Карта</a>
-  <a href="history.html">История</a>
-  <a href="contacts.html">Контакты</a>
-</div>
-
-<div class="media-section">
-
-  <!-- Фото блок -->
-  <div class="media-block">
-    <img src="photos/photo1.jpg" alt="Фотогалерея">
-    <img src="photos/нц3.jpg" alt="Храм Николая Угодника">
-    <img src="photos/н 5.jpg" alt="Фотогалерея">
-    <p>Фотогалерея</p>
-  </div>
-
-  <!-- Видео блок -->
-  <div class="media-block">
-    <video controls>
-      <source src="videos/видео1.mp4" type="video/mp4">
-      Ваш браузер не поддерживает видео.
-    </video>
-    <p>Видеогалерея</p>
-  </div>
-
-</div>
-
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html">Храмы</a><a href="karta.html">Карта</a><a href="foto.html" aria-current="page">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
+  <main id="main-content">
+    <header class="page-hero"><span class="eyebrow">Медиатека</span><h1>Фото и видео</h1><p>Фотофиксация архитектурных деталей, современного состояния памятников и материалов полевых поездок.</p></header>
+    <section class="section section--compact"><div class="gallery-grid gallery-grid--natural">
+      <figure><a href="assets/images/archive-1.jpg"><img src="assets/images/archive-1.jpg" width="960" height="1280" alt="Участники работ у исторического храма" loading="eager"></a><figcaption>Материалы полевой поездки</figcaption></figure>
+      <figure><a href="assets/images/archive-2.jpg"><img src="assets/images/archive-2.jpg" width="960" height="1280" alt="Колокольня сельского храма среди деревьев" loading="lazy" decoding="async"></a><figcaption>Храмовый комплекс</figcaption></figure>
+      <figure><a href="assets/images/archive-3.jpg"><img src="assets/images/archive-3.jpg" width="960" height="1280" alt="Архитектурная деталь кирпичной стены" loading="lazy" decoding="async"></a><figcaption>Фрагмент кладки</figcaption></figure>
+      <figure><a href="assets/images/archive-4.jpg"><img src="assets/images/archive-4.jpg" width="960" height="1280" alt="Портик и кирпичная колонна храма" loading="lazy" decoding="async"></a><figcaption>Архитектурные детали</figcaption></figure>
+      <figure><a href="assets/images/archive-5.jpg"><img src="assets/images/archive-5.jpg" width="960" height="1280" alt="Фасад сельского храма" loading="lazy" decoding="async"></a><figcaption>Современное состояние</figcaption></figure>
+      <figure><a href="assets/images/archive-6.jpg"><img src="assets/images/archive-6.jpg" width="960" height="1280" alt="Храм среди лесного ландшафта" loading="lazy" decoding="async"></a><figcaption>Храм и окружающий ландшафт</figcaption></figure>
+    </div></section>
+    <section class="section section--tinted"><div class="section-heading"><div><span class="eyebrow">Видеоархив</span><h2>Материалы поездки</h2></div><p>Видео загружается только после запуска пользователем.</p></div><div class="card video-card"><div class="card__body"><video controls preload="none"><source src="assets/video/church-heritage.mp4" type="video/mp4">Ваш браузер не поддерживает воспроизведение видео.</video></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="hramy.html">Каталог храмов</a><a href="contact.html">Передать материалы</a></div></div></footer>
 </body>
 </html>

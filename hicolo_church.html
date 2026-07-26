@@ -1,218 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Церковь Николая Чудотворца</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6f9;
-      color: #333;
-    }
-
-    header {
-      background-color: #2980b9;
-      padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-    }
-
-    nav ul li {
-      position: relative;
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      display: block;
-    }
-
-    nav ul li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #2980b9;
-      list-style: none;
-      padding: 10px;
-      min-width: 200px;
-    }
-
-    nav ul li:hover ul {
-      display: block;
-    }
-
-    nav ul li ul li {
-      margin: 5px 0;
-    }
-
-    nav ul li ul li a {
-      color: #fff;
-    }
-
-    .search-container {
-      display: flex;
-      justify-content: center;
-      padding: 80px 10px 20px;
-      background-color: #eaf3fa;
-      flex-wrap: wrap;
-    }
-
-    .search-container form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .search-container input[type="text"] {
-      width: 240px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .search-container button {
-      padding: 8px 12px;
-      background-color: #2980b9;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .container {
-      display: flex;
-      margin-top: 10px;
-    }
-
-    aside {
-      width: 220px;
-      background-color: #dbe9f4;
-      padding: 20px;
-      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-      min-height: calc(100vh - 70px);
-    }
-
-    aside h2 {
-      font-size: 18px;
-      color: #2c3e50;
-      margin-bottom: 15px;
-    }
-
-    aside ul {
-      list-style: none;
-    }
-
-    aside ul li {
-      margin: 10px 0;
-    }
-
-    aside ul li a {
-      color: #333;
-      text-decoration: none;
-    }
-
-    main {
-      flex: 1;
-      padding: 40px;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #2c3e50;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .image-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .image-container img {
-      max-width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-  </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Церковь Николая Чудотворца в Николо-Острове</title>
+  <meta name="description" content="Церковь Николая Чудотворца в урочище Николо-Остров Чухломского района: сведения и фотографии современного состояния.">
+  <link rel="canonical" href="https://church-costroma.ru/hicolo_church.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="Церковь Николая Чудотворца"><meta property="og:description" content="Николо-Остров, Чухломской район."><meta property="og:image" content="https://church-costroma.ru/assets/images/nikolo-ostrov-1.jpg">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=2"><script defer src="site.js?v=2"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="history.html">История</a></li>
-        <li>
-          <a href="#">Храмы</a>
-          <ul>
-            <li><a href="mirohanovo.html">с. Мироханово</a></li>
-            <li><a href="povalihino.html">с. Повалихино</a></li>
-            <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-            <li><a href="church_vlad.html">Церковь Владимирская</a></li>
-          </ul>
-        </li>
-        <li><a href="karta.html">Карта</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="search-container">
-    <form action="https://www.google.com/search" method="get" target="_blank">
-      <input type="hidden" name="sitesearch" value="church-costroma.ru">
-      <input type="text" name="q" placeholder="Поиск по сайту...">
-      <button type="submit">Найти</button>
-    </form>
-  </div>
-
-  <div class="container">
-    <aside>
-      <h2>Храмы</h2>
-      <ul>
-        <li><a href="mirohanovo.html">с. Мироханово</a></li>
-        <li><a href="povalihino.html">с. Повалихино</a></li>
-        <li><a href="church_rizo.html">Храм Ризоположения</a></li>
-        <li><a href="church_vlad.html">Церковь Владимирская</a></li>
-        <li><a href="church_nikolai.html">Церковь Николая Чудотворца</a></li>
-      </ul>
-    </aside>
-
-    <main>
-      <h1>Церковь Николая Чудотворца</h1>
-      <p>Обычно храмы в сельской местности строились «всем миром». Примером является церковь Николая Чудотворца, Никола – остров урочище Чухломской уезд, Костромской области.</p>
-      <div class="image-container">
-        <img src="Hicolsk_1.JPG" alt="Храм Николая Чудотворца">
-        <img src="Hicolsk.JPG" alt="Храм Николая Чудотворца">
-        <img src="Hicolsk_2.JPG" alt="Храм Николая Чудотворца">
-      </div>
-    </main>
-  </div>
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpg" width="160" height="160" alt=""><span>Храмы Верхнего Поволжья<small>Костромское наследие</small></span></a><nav class="site-nav" aria-label="Основная навигация" data-site-menu><a href="index.html">Главная</a><a href="history.html">История</a><a href="hramy.html" aria-current="page">Храмы</a><a href="karta.html">Карта</a><a href="foto.html">Медиатека</a><a href="museum.html">Музеи</a><a href="contact.html">Контакты</a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Открыть меню" data-menu-toggle>Меню</button></div></header>
+  <main id="main-content">
+    <header class="page-hero"><span class="eyebrow">Урочище Николо-Остров</span><h1>Церковь Николая Чудотворца</h1><p>Каменный сельский храмовый комплекс в лесном ландшафте Чухломского района.</p></header>
+    <nav class="subnav" aria-label="Каталог храмов"><a href="hramy.html">Все объекты</a><a href="hicolo_church.html" aria-current="page">Николо-Остров</a><a href="church_vlad.html">Владимирская</a><a href="church_rizo.html">Ризоположения</a><a href="mirohanovo.html">Мироханово</a><a href="povalihino.html">Повалихино</a></nav>
+    <section class="section section--compact"><div class="story"><div class="story__media"><img src="assets/images/nikolo-ostrov-1.jpg" width="960" height="1280" alt="Фасад церкви Николая Чудотворца" loading="eager"><img src="assets/images/nikolo-ostrov-4.jpg" width="960" height="1280" alt="Интерьер церкви Николая Чудотворца" loading="lazy" decoding="async"></div><article class="prose-card prose">
+      <ul class="facts"><li><span class="meta-label">Место</span><strong>Николо-Остров</strong>Чухломской район</li><li><span class="meta-label">Координаты</span><strong>58.8768, 43.6051</strong>по материалам проекта</li></ul>
+      <h2>Храм, построенный общиной</h2><p>Сельские храмы нередко возводились общими усилиями прихожан — «всем миром». Церковь Николая Чудотворца в урочище Николо-Остров сохраняет память о таком устройстве местной жизни.</p>
+      <p>Комплекс включает основной объём храма и высокую колокольню. Сохранившиеся архитектурные детали, кирпичная кладка и внутреннее пространство позволяют изучать первоначальный замысел и последующие изменения здания.</p>
+      <p>Фотографии фиксируют современное состояние памятника и работы по расчистке территории. Материалы могут быть полезны исследователям и волонтёрским инициативам.</p>
+      <div class="actions"><a class="button" href="karta.html#nikolo-ostrov">На карте объектов</a><a class="button button--ghost" href="contact.html">Дополнить сведения</a></div>
+    </article></div></section>
+    <section class="section section--tinted" aria-labelledby="nikolo-gallery"><div class="section-heading"><div><span class="eyebrow">Фотофиксация</span><h2 id="nikolo-gallery">Современное состояние</h2></div></div><div class="gallery-grid gallery-grid--natural">
+      <figure><a href="assets/images/nikolo-ostrov-2.jpg"><img src="assets/images/nikolo-ostrov-2.jpg" width="960" height="1280" alt="Колокольня церкви Николая Чудотворца" loading="lazy" decoding="async"></a><figcaption>Вид на колокольню</figcaption></figure>
+      <figure><a href="assets/images/nikolo-ostrov-3.jpg"><img src="assets/images/nikolo-ostrov-3.jpg" width="960" height="1280" alt="Портик церкви Николая Чудотворца" loading="lazy" decoding="async"></a><figcaption>Архитектурные детали</figcaption></figure>
+      <figure><a href="assets/images/archive-2.jpg"><img src="assets/images/archive-2.jpg" width="960" height="1280" alt="Работы у церкви Николая Чудотворца" loading="lazy" decoding="async"></a><figcaption>Материалы полевой поездки</figcaption></figure>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><p>© <span data-current-year>2026</span> Храмы Верхнего Поволжья</p><div class="site-footer__links"><a href="hramy.html">Каталог храмов</a><a href="foto.html">Медиатека</a></div></div></footer>
 </body>
 </html>
