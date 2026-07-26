@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://church-costroma.ru/</loc></url><url><loc>https://church-costroma.ru/history.html</loc></url><url><loc>https://church-costroma.ru/hramy.html</loc></url><url><loc>https://church-costroma.ru/karta.html</loc></url><url><loc>https://church-costroma.ru/foto.html</loc></url><url><loc>https://church-costroma.ru/museum.html</loc></url><url><loc>https://church-costroma.ru/news.html</loc></url><url><loc>https://church-costroma.ru/contact.html</loc></url><url><loc>https://church-costroma.ru/hicolo_church.html</loc></url><url><loc>https://church-costroma.ru/church_vlad.html</loc></url><url><loc>https://church-costroma.ru/church_rizo.html</loc></url><url><loc>https://church-costroma.ru/mirohanovo.html</loc></url><url><loc>https://church-costroma.ru/povalihino.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://church-costroma.ru/</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/nikolo-ostrov-1.jpg</image:loc><image:title>Церковь Николая Чудотворца в Николо-Острове</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/history.html</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/chukhloma-map.jpg</image:loc><image:title>Карта Чухломского района</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/hramy.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/karta.html</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/region-map.jpg</image:loc><image:title>Карта Костромской области</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/foto.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/museum.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/news.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/contact.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/hicolo_church.html</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/nikolo-ostrov-1.jpg</image:loc><image:title>Церковь Николая Чудотворца</image:title></image:image><image:image><image:loc>https://church-costroma.ru/assets/images/nikolo-ostrov-2.jpg</image:loc><image:title>Колокольня церкви Николая Чудотворца</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/church_vlad.html</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/vladimir-sign.jpg</image:loc><image:title>Владимирская церковь в Озорникове</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/church_rizo.html</loc><lastmod>2026-07-26</lastmod></url>
+  <url><loc>https://church-costroma.ru/mirohanovo.html</loc><lastmod>2026-07-26</lastmod><image:image><image:loc>https://church-costroma.ru/assets/images/mirohanovo-now.jpg</image:loc><image:title>Храм в селе Мироханово</image:title></image:image></url>
+  <url><loc>https://church-costroma.ru/povalihino.html</loc><lastmod>2026-07-26</lastmod></url>
 </urlset>
